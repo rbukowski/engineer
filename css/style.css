@@ -24,3 +24,6 @@ header button:hover{
 .card img{
     max-height: 250px;
 }
+nav li:hover{
+    cursor: pointer;
+}
