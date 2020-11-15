@@ -27,3 +27,15 @@ header button:hover{
 nav li:hover{
     cursor: pointer;
 }
+.navbar {
+    width: 100%;
+    position: fixed;
+  
+    z-index: 999;
+  }
+  .card {
+    height: 100%;
+  }
+  .text-light {
+      text-align: center;
+  }
