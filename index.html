@@ -48,7 +48,7 @@
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12 text-center">
-                    <button class="col-4 p-4">POZNAJ NAS</button>
+                    <button class="col-lg-4 p-4">POZNAJ NAS</button>
                 </div>
             </div>
         </div>
@@ -59,11 +59,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h1 class="text-center p-4 mb-3 mt-3">Nasza oferta</h1>
+                    <h1 class="text-center p-4 mb-3 mt-4">Nasza oferta</h1>
                 </div>
             </div>
             <div class="row d-flex justify-content-center p-4">
-                <div class="col-4">
+                <div class="col-lg-4">
                     <div class="card">
                         <img src="asset/offer/1.jpg" alt="offer">
                         <div class="card-body">
@@ -72,7 +72,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-lg-4">
                     <div class="card">
                         <img src="asset/offer/2.jpg" alt="offer">
                         <div class="card-body">
@@ -81,7 +81,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-lg-4">
                     <div class="card">
                         <img src="asset/offer/3.jpg" alt="offer">
                         <div class="card-body">
@@ -103,7 +103,7 @@
                 </div>
             </div>
             <div class="row d-flex justify-content-center p-4">
-                <div class="col-3 m-3">
+                <div class="col-lg-3 m-3">
                     <div class="avatar mx-auto">
                         <img src="asset/fun/pool.jpg" class="w-100 rounded-circle" alt="rozrywka">
                     </div>
@@ -112,7 +112,7 @@
                         Basen hotelowy pozwoli się Państwu zrelaksować.
                     </p>
                 </div>
-                <div class="col-3 m-3">
+                <div class="col-lg-3 m-3">
                     <div class="avatar mx-auto">
                         <img src="asset/fun/bowling.jpg" class="w-100 rounded-circle" alt="rozrywka">
                     </div>
@@ -121,7 +121,7 @@
                         W naszym hotelu znajdą Państwo 3 tory do gry w kręgle.
                     </p>
                 </div>
-                <div class="col-3 m-3">
+                <div class="col-lg-3 m-3">
                     <div class="avatar mx-auto">
                         <img src="asset/fun/bilard.jpg" class="w-100 rounded-circle" alt="rozrywka">
                     </div>
@@ -138,21 +138,20 @@
     <section id="map">
         <div class="container">
                 <script
-                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5MdKOcpFPugM4GywR4YYBwZihNU-Dbd0&callback=initMap&libraries=&v=weekly"
-                    defer></script>
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5MdKOcpFPugM4GywR4YYBwZihNU-Dbd0&callback=initMap&libraries=&v=weekly" defer></script>
                 <script>
                     // Initialize and add the map
                     function initMap() {
-                        // The location of Uluru
-                        const uluru = { lat: 54.57092, lng: 18.38802 };
-                        // The map, centered at Uluru
+                        // The location of Rumia
+                        const rumia = { lat: 54.57092, lng: 18.38802 };
+                        // The map, centered at Rumia
                         const map = new google.maps.Map(document.getElementById("map"), {
                             zoom: 10,
-                            center: uluru,
+                            center: rumia,
                         });
-                        // The marker, positioned at Uluru
+                        // The marker, positioned at Rumia
                         const marker = new google.maps.Marker({
-                            position: uluru,
+                            position: rumia,
                             map: map,
                         });
                     }
@@ -164,13 +163,13 @@
     <footer class="page-footer font-small pt-3">
         <div class="container">
             <div class="row p-4 d-flex justify-content-between">
-                <div class="col-3">
+                <div class="col-lg-3">
                     <h5 class="font-weight-bold">Hotel Bukowscy</h5>
                     <p>
                         Hotel cieszący się renomą na polskim rynku już od ponad 20 lat.
                     </p>
                 </div>
-                <div class="col-4">
+                <div class="col-lg-4">
                     <p>
                         <i class="fa fa-phone pr-4" style="font-size:24px"></i> +48123456789
                     </p>
