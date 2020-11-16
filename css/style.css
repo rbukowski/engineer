@@ -39,3 +39,7 @@ nav li:hover{
   .text-light {
       text-align: center;
   }
+#map {
+    height: 700px;
+    width: 100%;
+  }
