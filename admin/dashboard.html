@@ -17,7 +17,7 @@
     <div class="container-fluid bg-dark p-3">
         <div class="row">
             <div class="col-12">
-                <h3 class="text-center mt-3 mb-3 text-light">Pokoje</h3>
+                <h3 class="text-center mt-3 mb-3 text-light">System do zarządzania hotelem</h3>
             </div>
         </div>
     </div>
@@ -30,6 +30,7 @@
                         <th scope="col"></th>
                         <th scope="col">Pokoje</th>
                         <th scope="col">Apartamenty</th>
+                        <th scope="col">Sale konferencyjne</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -37,16 +38,19 @@
                         <th scope="row">1</th>
                         <td>Pokój dwuosobowy</td>
                         <td>Dla dwojga</td>
+                        <td>Z telewizorem</td>
                     </tr>
                     <tr>
                         <th scope="row">2</th>
                         <td>Pokój jednoosobowy</td>
                         <td>Z mini barem</td>
+                        <td>Z tablicą interaktywną</td>
                     </tr>
                     <tr>
                         <th scope="row">3</th>
                         <td>Pokój czteroosobowy</td>
                         <td>Dla czterech osób</td>
+                        <td>Z projektorem</td>
                     </tr>
                 </tbody>
             </table>
@@ -129,11 +133,54 @@
                         <p>Nazwa: <input type="text" name="apartment" id="apartment" placeholder="Nazwa" required></p>
                         <p>Zdjęcie: <input type="file" name="photo_apartment" id="photo_apartment" required></p>
                         <div class="mt-3">
-                            Pokoje: <select name="pokoj" id="pokoj">
+                            Apartamenty: <select name="pokoj" id="pokoj">
                                 <option value="" disabled>Apartament</option>
                                 <option value="">dla dwojga</option>
                                 <option value="">Z mini barem</option>
                                 <option value="">Dla czterech osób</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="btn btn-success">Dodaj</button>
+                </form>
+            </div>
+            <div class="col-6 p-5">
+                <table class="table text-light">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Sale konferencyjne</th>
+                            <th scope="col">Usuń</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="col">1</th>
+                            <th scope="col">Z telewizorem</th>
+                            <th scope="col"><button class="btn btn-danger">X</button></th>
+                        </tr>
+                        <tr>
+                            <th scope="col">2</th>
+                            <th scope="col">Z tablicą interaktywną</th>
+                            <th scope="col"><button class="btn btn-danger">X</button></th>
+                        </tr>
+                        <tr>
+                            <th scope="col">3</th>
+                            <th scope="col">Z projektorem</th>
+                            <th scope="col"><button class="btn btn-danger">X</button></th>
+                        </tr>
+                    </tbody>
+                </table>
+                <form action="" enctype="multipart/form-data" method="POST" class="text-white d-flex justify-content-between align-items-center">
+                    <div class="forms">
+                        <p>Nazwa: <input type="text" name="apartment" id="apartment" placeholder="Nazwa" required></p>
+                        <p>Zdjęcie: <input type="file" name="photo_apartment" id="photo_apartment" required></p>
+                        <div class="mt-3">
+                            Sale konferencyjne: <select name="pokoj" id="pokoj">
+                                <option value="" disabled>Sale konferencyjne</option>
+                                <option value="">Z telewizorem</option>
+                                <option value="">Z tablicą interaktywną</option>
+                                <option value="">Z projektorem</option>
                             </select>
                         </div>
                     </div>

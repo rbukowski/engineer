@@ -64,31 +64,37 @@
             </div>
             <div class="row d-flex justify-content-center p-4">
                 <div class="col-lg-4">
-                    <div class="card">
-                        <img src="asset/offer/1.jpg" alt="offer">
-                        <div class="card-body">
-                            <h4 class="text-center p-3">Apartamenty</h4>
-                            <p>Luksusowe aparamenty z pełnym wyposażeniem i mini barem.</p>
+                    <a class="card-link" href="/inz/index.html">
+                        <div class="card">
+                            <img src="asset/offer/1.jpg" alt="offer">
+                            <div class="card-body">
+                                <h4 class="text-center p-3">Apartamenty</h4>
+                                <p>Luksusowe aparamenty z pełnym wyposażeniem i mini barem.</p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="col-lg-4">
-                    <div class="card">
-                        <img src="asset/offer/2.jpg" alt="offer">
-                        <div class="card-body">
-                            <h4 class="text-center p-3">Pokoje</h4>
-                            <p>Pokoje do wynajęcia.</p>
+                    <a class="card-link" href="/inz/index.html">
+                        <div class="card">
+                            <img src="asset/offer/2.jpg" alt="offer">
+                            <div class="card-body">
+                                <h4 class="text-center p-3">Pokoje</h4>
+                                <p>Pokoje do wynajęcia.</p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="col-lg-4">
-                    <div class="card">
-                        <img src="asset/offer/3.jpg" alt="offer">
-                        <div class="card-body">
-                            <h4 class="text-center p-3">Sale konferencyjne</h4>
-                            <p>W pełni wyposażone sale konferencyjne dla klientów biznesowych.</p>
+                    <a class="card-link" href="/inz/index.html">
+                        <div class="card">
+                            <img src="asset/offer/3.jpg" alt="offer">
+                            <div class="card-body">
+                                <h4 class="text-center p-3">Sale konferencyjne</h4>
+                                <p>W pełni wyposażone sale konferencyjne dla klientów biznesowych.</p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -137,25 +143,26 @@
     <!--map-->
     <section id="map">
         <div class="container">
-                <script
-                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5MdKOcpFPugM4GywR4YYBwZihNU-Dbd0&callback=initMap&libraries=&v=weekly" defer></script>
-                <script>
-                    // Initialize and add the map
-                    function initMap() {
-                        // The location of Rumia
-                        const rumia = { lat: 54.57092, lng: 18.38802 };
-                        // The map, centered at Rumia
-                        const map = new google.maps.Map(document.getElementById("map"), {
-                            zoom: 10,
-                            center: rumia,
-                        });
-                        // The marker, positioned at Rumia
-                        const marker = new google.maps.Marker({
-                            position: rumia,
-                            map: map,
-                        });
-                    }
-                </script>
+            <script
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5MdKOcpFPugM4GywR4YYBwZihNU-Dbd0&callback=initMap&libraries=&v=weekly"
+                defer></script>
+            <script>
+                // Initialize and add the map
+                function initMap() {
+                    // The location of Rumia
+                    const rumia = { lat: 54.57092, lng: 18.38802 };
+                    // The map, centered at Rumia
+                    const map = new google.maps.Map(document.getElementById("map"), {
+                        zoom: 10,
+                        center: rumia,
+                    });
+                    // The marker, positioned at Rumia
+                    const marker = new google.maps.Marker({
+                        position: rumia,
+                        map: map,
+                    });
+                }
+            </script>
         </div>
     </section>
     <!--map-->

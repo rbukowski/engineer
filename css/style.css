@@ -43,3 +43,6 @@ nav li:hover{
     height: 700px;
     width: 100%;
   }
+.card-link {
+    color: black;
+}
