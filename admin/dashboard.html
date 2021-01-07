@@ -85,16 +85,16 @@
                         </tr>
                     </tbody>
                 </table>
-                <form action="" enctype="multipart/form-data" method="POST" class="text-white d-flex justify-content-between align-items-center">
+                <form action="pokoje.php" enctype="multipart/form-data" method="POST" class="text-white d-flex justify-content-between align-items-center">
                     <div class="forms">
                         <p>Nazwa: <input type="text" name="room" id="room" placeholder="Nazwa" required></p>
                         <p>Zdjęcie: <input type="file" name="photo_room" id="photo_room" required></p>
                         <div class="mt-3">
                             Pokoje: <select name="pokoj" id="pokoj">
                                 <option value="" disabled>Pokój</option>
-                                <option value="">dwuosobowy</option>
-                                <option value="">jednoosobowy</option>
-                                <option value="">czteroosobowy</option>
+                                <option value="dwuosobowy">dwuosobowy</option>
+                                <option value="jednoosobowy">jednoosobowy</option>
+                                <option value="czteroosobowy">czteroosobowy</option>
                             </select>
                         </div>
                     </div>
@@ -135,9 +135,9 @@
                         <div class="mt-3">
                             Apartamenty: <select name="pokoj" id="pokoj">
                                 <option value="" disabled>Apartament</option>
-                                <option value="">dla dwojga</option>
-                                <option value="">Z mini barem</option>
-                                <option value="">Dla czterech osób</option>
+                                <option value="dla_dwojga">dla dwojga</option>
+                                <option value="z_barem">Z mini barem</option>
+                                <option value="dla_czterech">Dla czterech osób</option>
                             </select>
                         </div>
                     </div>
@@ -178,9 +178,9 @@
                         <div class="mt-3">
                             Sale konferencyjne: <select name="pokoj" id="pokoj">
                                 <option value="" disabled>Sale konferencyjne</option>
-                                <option value="">Z telewizorem</option>
-                                <option value="">Z tablicą interaktywną</option>
-                                <option value="">Z projektorem</option>
+                                <option value="z_telewizorem">Z telewizorem</option>
+                                <option value="z_tablica">Z tablicą interaktywną</option>
+                                <option value="z_projektorem">Z projektorem</option>
                             </select>
                         </div>
                     </div>
