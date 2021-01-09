@@ -33,16 +33,19 @@ nav li:hover{
   
     z-index: 999;
   }
-  .card {
-    height: 100%;
-  }
-  .text-light {
-      text-align: center;
-  }
+.card {
+height: 100%;
+}
+.text-light {
+    text-align: center;
+}
 #map {
     height: 700px;
     width: 100%;
-  }
+}
 .card-link {
     color: black;
+}
+.hidden-input {
+    display: none;
 }
