@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(!isset($_SESSION['logged']) || $_SESSION['logged'] !== true){
+    die('Brak dostępu!');
+}
+?>
 <!doctype html>
 <html lang="en">
 
@@ -91,12 +97,13 @@
                     <div class="forms">
                         <p>Nazwa: <input type="text" name="name" id="room" placeholder="Nazwa" required></p>
                         <p>Zdjęcie: <input type="file" name="photo" id="photo_room" required></p>
+                        <p>Cena za dobę: <input type="number" name="price" id="price" required></p>
                         <div class="mt-3">
-                            Pokoje: <select name="type" id="pokoj">
+                            Rodzaj: <select name="type" id="pokoj">
                                 <option value="" disabled>Pokój</option>
-                                <option value="dwuosobowy">dwuosobowy</option>
-                                <option value="jednoosobowy">jednoosobowy</option>
-                                <option value="czteroosobowy">czteroosobowy</option>
+                                <option value="1">dwuosobowy</option>
+                                <option value="2">jednoosobowy</option>
+                                <option value="3">czteroosobowy</option>
                             </select>
                         </div>
                         <input type="text" name="submitType" class="hidden-input"  id="room" placeholder="Nazwa" required value="room">
