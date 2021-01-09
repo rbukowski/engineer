@@ -16,10 +16,10 @@
                 $targetDir = "../asset/offer/conference/";
             }
     
-            $targerFile = $targetDir.basename($_FILES['photo']['name']);
-            $imgType = strtolower(pathinfo($targerFile,PATHINFO_EXTENSION));
+            $targetFile = $targetDir.basename($_FILES['photo']['name']);
+            $imgType = strtolower(pathinfo($targetFile,PATHINFO_EXTENSION));
     
-            if(file_exists($targerFile)){
+            if(file_exists($targetFile)){
                 die('File alreadu exists!');
             }
     
@@ -31,7 +31,7 @@
                 die('Image format is not correct!');
             }
     
-            if(move_uploaded_file($_FILES['photo']['tmp_name'],$targerFile)){
+            if(move_uploaded_file($_FILES['photo']['tmp_name'],$targetFile)){
                 echo "Your file has been uploaded";
             } else{
                 die('Your file has not been uploaded');
@@ -40,12 +40,12 @@
 
         require_once('sql_connect.php');
 
-        $sql = "INSERT INTO pokoje (name, photo_url, price, type) VALUES (?,?,?,?)";
+        $sql = "INSERT INTO rooms (name, photo_url, price, type) VALUES (?,?,?,?)";
 
         if ($statement = $mysqli->prepare($sql)) {
             var_dump($type_id);
-            var_dump($name, $targerFile);
-            if($statement->bind_param('ssii', $name, $targerFile, $price, $type_id)){
+            var_dump($name, $targetFile);
+            if($statement->bind_param('ssii', $name, $targetFile, $price, $type_id)){
                 if($statement->execute()){
                     header("Location:dashboard.php");
                 } else {
