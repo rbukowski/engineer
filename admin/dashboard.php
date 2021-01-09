@@ -79,7 +79,16 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] !== true){
                         <tr>
                             <th scope="col">1</th>
                             <th scope="col">dwuosobowy</th>
-                            <th scope="col"><button class="btn btn-danger">X</button></th>
+                            <th scope="col">
+                                <button 
+                                    class="btn btn-danger" 
+                                    onclick="(function(){
+                                        location.href = 'delete/delete_room.php?id=1';
+                                    })()"
+                                >
+                                    X
+                                </button>
+                            </th>
                         </tr>
                         <tr>
                             <th scope="col">2</th>
