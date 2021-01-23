@@ -3,6 +3,10 @@
     if(!isset($_SESSION['logged']) || $_SESSION['logged'] !== true){
         die('Brak dostępu!');
     }
+
+    require_once('functions.php');
+
+    $roomTypes = getRoomTypes();
 ?>
 <!doctype html>
 <html lang="en">
@@ -46,11 +50,13 @@
                           <p class="form-dark-label">Zdjęcie: <input type="file" name="photo" id="photo_room" required></p>
                           <p class="form-dark-label">Cena za dobę: <input type="number" name="price" id="price" required></p>
                           <div class="mt-3 form-dark-label">
-                              Rodzaj: <select name="type" id="pokoj">
-                                  <option value="" disabled>Pokój</option>
-                                  <option value="1">dwuosobowy</option>
-                                  <option value="2">jednoosobowy</option>
-                                  <option value="3">czteroosobowy</option>
+                              Rodzaj: 
+                              <select name="type" id="pokoj">
+                              <?php
+                                  foreach ($roomTypes as $i => $singleRoomType) { 
+                                    echo "<option value='".$singleRoomType['id']."'>".$singleRoomType['type']."</option>";
+                                  }
+                                ?>
                               </select>
                           </div>
                           <input type="text" name="submitType" class="hidden-input" id="room" placeholder="Nazwa" required value="room">

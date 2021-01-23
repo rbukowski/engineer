@@ -3,6 +3,12 @@
     if(!isset($_SESSION['logged']) || $_SESSION['logged'] !== true){
         die('Brak dostępu!');
     }
+
+    require_once('functions.php');
+
+    $rooms = getRoomsOnAdminDashbard();
+
+    echo json_encode($rooms);
 ?>
 <!doctype html>
 <html lang="en">
@@ -83,28 +89,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Pokój twojej starej</td>
-                        <td>Dla niej</td>
-                        <td>drogo</td>
-                        <td>
-                            <button 
-                                class="btn btn-primary" 
-                            >
-                                <i class="fas fa-edit"></i>
-                            </button>
+                    <?php
+                        foreach ($rooms as $i => $singleRoom) { 
+                            echo "<tr>";
+                            echo "<td scope='row'>".$singleRoom['id']."</td>";
+                            echo "<td scope='row'>".$singleRoom['name']."</td>";
+                            echo "<td scope='row'>".$singleRoom['type']."</td>";
+                            echo "<td scope='row'>".$singleRoom['price']."</td>";
+                            echo "<td scope='row'>".$singleRoom['name']."</td>";
 
-                            <button 
-                                class="btn btn-danger" 
-                                onclick="(function(){
-                                    location.href = 'delete/delete_room.php?id=1';
-                                })()"
-                            >
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </td>
-                    </tr>
+                            echo "</tr>";
+                        }
+                    ?>
                 </tbody>
             </table>
 

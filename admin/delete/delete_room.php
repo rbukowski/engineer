@@ -4,7 +4,7 @@
 
         $type = $_GET['type'];
 
-        require_once('functions.php');
+        require_once('../functions.php');
         delete("rooms",$room_id);
     }
 ?>
