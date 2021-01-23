@@ -45,6 +45,5 @@ if(!empty($_POST)) {
 
 } else {
     die("No data sent");
-    
 }
 ?>

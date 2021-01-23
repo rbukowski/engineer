@@ -55,12 +55,5 @@
         } else {
             die('Nieprawidłowe zapytanie!');
         }
-
-
-
-
     }
-
-    
-
 ?>

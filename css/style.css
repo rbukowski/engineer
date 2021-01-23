@@ -34,7 +34,7 @@ nav li:hover{
     z-index: 999;
   }
 .card {
-height: 100%;
+    height: 100%;
 }
 .text-light {
     text-align: center;
@@ -48,4 +48,16 @@ height: 100%;
 }
 .hidden-input {
     display: none;
+}
+
+.align-right {
+    margin-left: auto;
+}
+
+.form-dark-label {
+    color: #000;
+}
+
+.form-control-buttons-wrapper button:first-of-type {
+    margin-right: 10px;
 }

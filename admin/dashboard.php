@@ -1,8 +1,8 @@
 <?php
-session_start();
-if(!isset($_SESSION['logged']) || $_SESSION['logged'] !== true){
-    die('Brak dostępu!');
-}
+    session_start();
+    if(!isset($_SESSION['logged']) || $_SESSION['logged'] !== true){
+        die('Brak dostępu!');
+    }
 ?>
 <!doctype html>
 <html lang="en">
@@ -16,6 +16,9 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] !== true){
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Font awesome -->
+    <link href="../asset/icons/css/all.css" rel="stylesheet">
 
 
     <title>Raport</title>
@@ -64,6 +67,56 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] !== true){
             </table>
         </div>
     </div>
+
+
+    <div class="container p-3 mt-4">
+        <h2 class="text-center p-4">Pokoje</h2>
+        <div class="row">
+            <table class="table table-striped mt-3">
+                <thead>
+                    <tr>
+                        <th scope="col">Id pokoju</th>
+                        <th scope="col">Nazwa</th>
+                        <th scope="col">Typ</th>
+                        <th scope="col">Cena</th>
+                        <th scope="col">Akcje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Pokój twojej starej</td>
+                        <td>Dla niej</td>
+                        <td>drogo</td>
+                        <td>
+                            <button 
+                                class="btn btn-primary" 
+                            >
+                                <i class="fas fa-edit"></i>
+                            </button>
+
+                            <button 
+                                class="btn btn-danger" 
+                                onclick="(function(){
+                                    location.href = 'delete/delete_room.php?id=1';
+                                })()"
+                            >
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="row ">
+                <a href="addRoom.php">
+                    <button class="btn btn-success align-right">Dodaj</button>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
     <div class="container-fluid bg-dark">
         <div class="row">
             <div class="col-6 p-5">
