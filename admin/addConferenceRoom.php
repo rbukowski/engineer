@@ -6,8 +6,7 @@
 
     require_once('functions.php');
 
-    $apartmentTypes = getApartmentTypes();
-
+    $conferenceRoomTypes = getConferenceRoomTypes();
 ?>
 <!doctype html>
 <html lang="en">
@@ -22,7 +21,7 @@
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
 
-    <title>Dodaj apartement</title>
+    <title>Dodaj salę konferencyjną</title>
 </head>
 
 <body>
@@ -30,7 +29,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h1 class="text-center p-4 mb-3 mt-4">Dodaj apartament</h1>
+                    <h1 class="text-center p-4 mb-3 mt-4">Dodaj salę konferencyjną</h1>
                 </div>
             </div>
         </div>
@@ -47,20 +46,20 @@
                     class="d-flex flex-column justify-content-between"
                   >
                       <div class="forms">
-                          <p class="form-dark-label">Nazwa: <input type="text" name="name" id="apartment" placeholder="Nazwa" required></p>
-                          <p class="form-dark-label">Zdjęcie: <input type="file" name="photo" id="photo_apartment" required></p>
+                          <p class="form-dark-label">Nazwa: <input type="text" name="name" id="conference" placeholder="Nazwa" required></p>
+                          <p class="form-dark-label">Zdjęcie: <input type="file" name="photo" id="photo_conference" required></p>
                           <p class="form-dark-label">Cena za dobę: <input type="number" name="price" id="price" required></p>
                           <div class="mt-3 form-dark-label">
                               Rodzaj: 
-                              <select name="type" id="apartament">
+                              <select name="type" id="conference">
                               <?php
-                                  foreach ($apartmentTypes as $i => $singleApartmentType) { 
-                                    echo "<option value='".$singleApartmentType['id']."'>".$singleApartmentType['type']."</option>";
+                                  foreach ($conferenceRoomTypes as $i => $singleConferenceType) { 
+                                    echo "<option value='".$singleConferenceType['id']."'>".$singleConferenceType['type']."</option>";
                                   }
                                 ?>
                               </select>
                           </div>
-                          <input type="text" name="submitType" class="hidden-input" id="apartment" placeholder="Nazwa" required value="apartment">
+                          <input type="text" name="submitType" class="hidden-input" id="conference" placeholder="Nazwa" required value="conference">
                       </div>
                       <div class="d-flex justify-content-end form-control-buttons-wrapper">
                         <button class="btn btn-success">Dodaj</button>

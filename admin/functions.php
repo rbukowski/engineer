@@ -70,4 +70,31 @@
 
         return $apartmentsWithType;
     }
+
+    // getting conference rooms from DB
+
+    function getConferenceRoomTypes() {
+        global $mysqli;
+
+        $sql = "SELECT * FROM conference_types";
+
+        $result = $mysqli->query($sql);
+
+        $conferenceTypes = $result->fetch_all(MYSQLI_ASSOC);
+
+        return $conferenceTypes;
+    }
+
+    function getConferenceOnAdminDashbard() {
+        global $mysqli;
+
+        // TODO: sprawdzić nadpisywanie id pokoju przez id room type
+        $sql = "SELECT * FROM conference_rooms INNER JOIN conference_types ON conference.type_id = conference_types.id ";
+
+        $result = $mysqli->query($sql);
+
+        $conferenceWithType = $result->fetch_all(MYSQLI_ASSOC);
+
+        return $conferenceWithType;
+    }
 ?>

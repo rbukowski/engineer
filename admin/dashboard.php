@@ -10,9 +10,13 @@
 
     $apartments = getApartmentsOnAdminDashbard();
 
+   // $conferenceRooms = getConferenceOnAdminDashbard();
+
     echo json_encode($rooms);
 
     echo json_encode($apartments);
+
+   // echo json_encode($conferenceRooms);
 ?>
 <!doctype html>
 <html lang="en">
@@ -149,6 +153,45 @@
 
             <div class="row ">
                 <a href="addApartment.php">
+                    <button class="btn btn-success align-right">Dodaj</button>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Adding conference rooms -->
+    <div class="container p-3 mt-4">
+        <h2 class="text-center p-4">Sale konferencyjne</h2>
+        <div class="row">
+            <table class="table table-striped mt-3">
+                <thead>
+                    <tr>
+                        <th scope="col">Id sali konferencyjnej</th>
+                        <th scope="col">Nazwa</th>
+                        <th scope="col">Typ</th>
+                        <th scope="col">Cena</th>
+                        <th scope="col">Akcje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        foreach ($apartments as $i => $singleConferenceRoom) { 
+                            echo "<tr>";
+                            echo "<td scope='row'>".$singleConferenceRoom['id']."</td>";
+                            echo "<td scope='row'>".$singleConferenceRoom['name']."</td>";
+                            echo "<td scope='row'>".$singleConferenceRoom['type']."</td>";
+                            echo "<td scope='row'>".$singleConferenceRoom['price']."</td>";
+                            echo "<td scope='row'>".$singleConferenceRoom['name']."</td>";
+
+                            echo "</tr>";
+                        }
+                    ?>
+                </tbody>
+            </table>
+
+            <div class="row ">
+                <a href="addConferenceRoom.php">
                     <button class="btn btn-success align-right">Dodaj</button>
                 </a>
             </div>
