@@ -8,7 +8,11 @@
 
     $rooms = getRoomsOnAdminDashbard();
 
+    $apartments = getApartmentsOnAdminDashbard();
+
     echo json_encode($rooms);
+
+    echo json_encode($apartments);
 ?>
 <!doctype html>
 <html lang="en">
@@ -74,7 +78,7 @@
         </div>
     </div>
 
-
+    <!-- Adding rooms -->
     <div class="container p-3 mt-4">
         <h2 class="text-center p-4">Pokoje</h2>
         <div class="row">
@@ -106,6 +110,45 @@
 
             <div class="row ">
                 <a href="addRoom.php">
+                    <button class="btn btn-success align-right">Dodaj</button>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Adding apartments -->
+    <div class="container p-3 mt-4">
+        <h2 class="text-center p-4">Apartamenty</h2>
+        <div class="row">
+            <table class="table table-striped mt-3">
+                <thead>
+                    <tr>
+                        <th scope="col">Id apartamentu</th>
+                        <th scope="col">Nazwa</th>
+                        <th scope="col">Typ</th>
+                        <th scope="col">Cena</th>
+                        <th scope="col">Akcje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        foreach ($apartments as $i => $singleApartment) { 
+                            echo "<tr>";
+                            echo "<td scope='row'>".$singleApartment['id']."</td>";
+                            echo "<td scope='row'>".$singleApartment['name']."</td>";
+                            echo "<td scope='row'>".$singleApartment['type']."</td>";
+                            echo "<td scope='row'>".$singleApartment['price']."</td>";
+                            echo "<td scope='row'>".$singleApartment['name']."</td>";
+
+                            echo "</tr>";
+                        }
+                    ?>
+                </tbody>
+            </table>
+
+            <div class="row ">
+                <a href="addApartment.php">
                     <button class="btn btn-success align-right">Dodaj</button>
                 </a>
             </div>

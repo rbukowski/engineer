@@ -43,4 +43,31 @@
 
         return $roomsWithType;
     }
+
+    // getting apartments from DB
+
+    function getApartmentTypes() {
+        global $mysqli;
+
+        $sql = "SELECT * FROM apartments_types";
+
+        $result = $mysqli->query($sql);
+
+        $apartmentTypes = $result->fetch_all(MYSQLI_ASSOC);
+
+        return $apartmentTypes;
+    }
+
+    function getApartmentsOnAdminDashbard() {
+        global $mysqli;
+
+        // TODO: sprawdzić nadpisywanie id pokoju przez id room type
+        $sql = "SELECT * FROM apartments INNER JOIN apartments_types ON apartments.type_id = apartments_types.id ";
+
+        $result = $mysqli->query($sql);
+
+        $apartmentsWithType = $result->fetch_all(MYSQLI_ASSOC);
+
+        return $apartmentsWithType;
+    }
 ?>
