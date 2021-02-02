@@ -36,22 +36,24 @@
             }
         }
 
-        require_once('sql_connect.php');
+        $pdo = require_once __DIR__ . '/sql_connect.php';
 
-        $sql = "INSERT INTO " . $submitType . " (name, photo_url, price, type_id) VALUES (?,?,?,?)";
+        $query = $pdo->prepare(<<<SQL
+            INSERT INTO :db_table (name, photo_url, price, type_id)
+            VALUES (:name, :photo_url, :price, :type_id)
+        SQL);
 
-        if ($statement = $mysqli->prepare($sql)) {
-            var_dump($type_id);
-            var_dump($name, $targetFile);
-            if($statement->bind_param('ssii', $name, $targetFile, $price, $type_id)){
-                if($statement->execute()){
-                    header("Location:dashboard.php");
-                } else {
-                    die('Error');
-                }
-            }
-        } else {
-            die('Nieprawidłowe zapytanie!');
+        try {
+            $query->execute([
+                'db_table' => $submitType,
+                'name' => $name,
+                'photo_url' => $targetFile,
+                'price' => $price,
+                'type_id' => $type_id
+            ]);
+            header("Location:dashboard.php");
+        } catch (Exception $e) {
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
         }
     }
 ?>

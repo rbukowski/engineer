@@ -1,6 +1,5 @@
 <?php
-
-    require_once('sql_connect.php');
+    $pdo = require_once __DIR__ . '/sql_connect.php';
 
     function delete($param, $id) {
         global $mysqli;
@@ -20,81 +19,131 @@
     }
 
     function getRoomTypes() {
-        global $mysqli;
+        global $pdo;
 
-        $sql = "SELECT * FROM rooms_types";
+        $query = $pdo->prepare(<<<SQL
+            SELECT
+                *
+            FROM
+                rooms_types
+        SQL);
 
-        $result = $mysqli->query($sql);
+        $query->execute();
 
-        $roomTypes = $result->fetch_all(MYSQLI_ASSOC);
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
-        return $roomTypes;
+        return $result;
     }
 
     function getRoomsOnAdminDashbard() {
-        global $mysqli;
+        global $pdo;
 
-        // TODO: sprawdzić nadpisywanie id pokoju przez id room type
-        $sql = "SELECT * FROM rooms INNER JOIN rooms_types ON rooms.type_id = rooms_types.id ";
+        $query = $pdo->prepare(<<<SQL
+            SELECT
+                rooms.id, rooms.name, rooms.price, rooms_types.type
+            FROM
+                rooms
+            INNER JOIN
+                rooms_types
+            ON
+                rooms.type_id = rooms_types.id
+        SQL);
 
-        $result = $mysqli->query($sql);
+        $query->execute();
 
-        $roomsWithType = $result->fetch_all(MYSQLI_ASSOC);
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
-        return $roomsWithType;
+        return $result;
     }
 
     // getting apartments from DB
-
     function getApartmentTypes() {
-        global $mysqli;
+        global $pdo;
 
-        $sql = "SELECT * FROM apartments_types";
+        $query = $pdo->prepare(<<<SQL
+            SELECT
+                *
+            FROM
+                apartment_types
+        SQL);
 
-        $result = $mysqli->query($sql);
+        $query->execute();
 
-        $apartmentTypes = $result->fetch_all(MYSQLI_ASSOC);
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
-        return $apartmentTypes;
+        return $result;
     }
 
     function getApartmentsOnAdminDashbard() {
-        global $mysqli;
+        global $pdo;
 
-        // TODO: sprawdzić nadpisywanie id pokoju przez id room type
-        $sql = "SELECT * FROM apartments INNER JOIN apartments_types ON apartments.type_id = apartments_types.id ";
+        var_dump($pdo);
 
-        $result = $mysqli->query($sql);
+        $query = $pdo->prepare(<<<SQL
+            SELECT
+                ap.id, ap.name, ap.price, at.type
+            FROM
+                apartments
+            AS
+                ap
+            INNER JOIN
+                apartments_types
+            AS
+                at
+            ON
+                ap.type_id = at.id
+        SQL);
 
-        $apartmentsWithType = $result->fetch_all(MYSQLI_ASSOC);
+        $query->execute();
 
-        return $apartmentsWithType;
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+
+        return $result;
     }
 
     // getting conference rooms from DB
 
     function getConferenceRoomTypes() {
-        global $mysqli;
+        global $pdo;
 
-        $sql = "SELECT * FROM conference_types";
+        $query = $pdo->prepare(<<<SQL
+            SELECT
+                rooms.id, rooms.name, rooms.price, rooms_types.type
+            FROM
+                conference_types
+        SQL);
 
-        $result = $mysqli->query($sql);
+        $query->execute();
 
-        $conferenceTypes = $result->fetch_all(MYSQLI_ASSOC);
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
-        return $conferenceTypes;
+        return $result;
     }
 
     function getConferenceOnAdminDashbard() {
-        global $mysqli;
+        global $pdo;
 
-        // TODO: sprawdzić nadpisywanie id pokoju przez id room type
-        $sql = "SELECT * FROM conference_rooms INNER JOIN conference_types ON conference_rooms.type_id = conference_types.id ";
+        $query = $pdo->prepare(<<<SQL
+            SELECT
+                cr.id, cr.name, cr.price, ct.type
+            FROM
+                conference_rooms
+            AS
+                cr
+            INNER JOIN
+                conference_types
+            AS
+                ct
+            ON
+                cr.type_id = ct.id
+        SQL);
 
-        $result = $mysqli->query($sql);
+        $query->execute();
 
-        $conferenceWithType = $result->fetch_all(MYSQLI_ASSOC);
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
-        return $conferenceWithType;
+        var_dump($result);
+
+        return $result;
     }
 ?>

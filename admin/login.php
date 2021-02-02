@@ -1,49 +1,45 @@
 <?php
-if(!empty($_POST)) {
+    if(!empty($_POST)) {
+        if(isset($_SESSION['logged']) && $_SESSION['logged'] === true) {
+            header("Location: dashboard.php");
+        }
 
-    //uruchamiamy sesje
+        $pdo = require_once __DIR__ . '/sql_connect.php';
 
-    session_start();
+        $nick = trim($_POST['login']);
+        $password = hash('whirlpool', trim($_POST['password']));
 
-    if(isset($_SESSION['logged']) && $_SESSION['logged'] === true) {
-        header("Location: dashboard.php");
-    }
+        if($nick == '' || $password == ''){
+            die("Twój login lub haslo jest niepoprawne");
+        }
 
-    require_once("sql_connect.php");
+        // przygotowanie zapytania
+        $query = $pdo->prepare(<<<SQL
+            SELECT
+                password
+            FROM
+                users
+            WHERE
+                name = :name
+        SQL);
 
-    $nick = trim($_POST['login']);
-    $password = hash('whirlpool', trim($_POST['password']));
+        $query->execute([
+            'name' => $nick,
+        ]);
 
-    if($nick == '' || $password == ''){
-        die("Twój login lub haslo jest niepoprawne");
-    }
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
-    // przygotowanie zapytania
+        $user_password = $result[0]["password"];
 
-    $sql = "SELECT password FROM users WHERE name = ?";
-    if($statement = $mysqli -> prepare($sql)) {
-        if($statement -> bind_param('s',$nick)){
-            $statement -> execute();
-            $result = $statement->get_result();
-            $row = $result->fetch_row();
-            $user_password = $row[0];
-
-            if ($password == $user_password){
-                session_start();
-                $_SESSION['logged'] = true;
-                header("Location: dashboard.php");
-            } else{
-                die('Hasło nieprawidłowe');
-            }
+        if ($password == $user_password){
+            session_start();
+            $_SESSION['logged'] = true;
+            header("Location: dashboard.php");
+        } else{
+            die('Hasło nieprawidłowe');
         }
 
     } else {
-        die('Niepoprawne zapytanie!');
+        die("No data sent");
     }
-
-    $mysqli->close();
-
-} else {
-    die("No data sent");
-}
 ?>
