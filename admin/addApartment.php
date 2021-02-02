@@ -7,7 +7,6 @@
     require_once('functions.php');
 
     $apartmentTypes = getApartmentTypes();
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -51,7 +50,7 @@
                           <p class="form-dark-label">Zdjęcie: <input type="file" name="photo" id="photo_apartment" required></p>
                           <p class="form-dark-label">Cena za dobę: <input type="number" name="price" id="price" required></p>
                           <div class="mt-3 form-dark-label">
-                              Rodzaj: 
+                              Rodzaj:
                               <select name="type" id="apartament">
                               <?php
                                   foreach ($apartmentTypes as $i => $singleApartmentType) { 
@@ -60,7 +59,7 @@
                                 ?>
                               </select>
                           </div>
-                          <input type="text" name="submitType" class="hidden-input" id="apartment" placeholder="Nazwa" required value="apartment">
+                          <input type="text" name="submitType" class="hidden-input" id="apartment" placeholder="Nazwa" required value="apartments">
                       </div>
                       <div class="d-flex justify-content-end form-control-buttons-wrapper">
                         <button class="btn btn-success">Dodaj</button>

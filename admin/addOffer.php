@@ -38,7 +38,7 @@
 
         require_once('sql_connect.php');
 
-        $sql = "INSERT INTO rooms (name, photo_url, price, type_id) VALUES (?,?,?,?)";
+        $sql = "INSERT INTO " . $submitType . " (name, photo_url, price, type_id) VALUES (?,?,?,?)";
 
         if ($statement = $mysqli->prepare($sql)) {
             var_dump($type_id);

@@ -10,13 +10,13 @@
 
     $apartments = getApartmentsOnAdminDashbard();
 
-   // $conferenceRooms = getConferenceOnAdminDashbard();
+    $conferenceRooms = getConferenceOnAdminDashbard();
 
     echo json_encode($rooms);
 
     echo json_encode($apartments);
 
-   // echo json_encode($conferenceRooms);
+   echo json_encode($conferenceRooms);
 ?>
 <!doctype html>
 <html lang="en">
@@ -105,7 +105,6 @@
                             echo "<td scope='row'>".$singleRoom['type']."</td>";
                             echo "<td scope='row'>".$singleRoom['price']."</td>";
                             echo "<td scope='row'>".$singleRoom['name']."</td>";
-
                             echo "</tr>";
                         }
                     ?>
@@ -176,7 +175,7 @@
                 </thead>
                 <tbody>
                     <?php
-                        foreach ($apartments as $i => $singleConferenceRoom) { 
+                        foreach ($conferenceRooms as $i => $singleConferenceRoom) { 
                             echo "<tr>";
                             echo "<td scope='row'>".$singleConferenceRoom['id']."</td>";
                             echo "<td scope='row'>".$singleConferenceRoom['name']."</td>";

@@ -89,7 +89,7 @@
         global $mysqli;
 
         // TODO: sprawdzić nadpisywanie id pokoju przez id room type
-        $sql = "SELECT * FROM conference_rooms INNER JOIN conference_types ON conference.type_id = conference_types.id ";
+        $sql = "SELECT * FROM conference_rooms INNER JOIN conference_types ON conference_rooms.type_id = conference_types.id ";
 
         $result = $mysqli->query($sql);
 

@@ -50,7 +50,7 @@
                           <p class="form-dark-label">Zdjęcie: <input type="file" name="photo" id="photo_room" required></p>
                           <p class="form-dark-label">Cena za dobę: <input type="number" name="price" id="price" required></p>
                           <div class="mt-3 form-dark-label">
-                              Rodzaj: 
+                              Rodzaj:
                               <select name="type" id="pokoj">
                               <?php
                                   foreach ($roomTypes as $i => $singleRoomType) { 
@@ -59,7 +59,7 @@
                                 ?>
                               </select>
                           </div>
-                          <input type="text" name="submitType" class="hidden-input" id="room" placeholder="Nazwa" required value="room">
+                          <input type="text" name="submitType" class="hidden-input" id="room" placeholder="Nazwa" required value="rooms">
                       </div>
                       <div class="d-flex justify-content-end form-control-buttons-wrapper">
                         <button class="btn btn-success">Dodaj</button>
