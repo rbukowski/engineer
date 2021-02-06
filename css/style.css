@@ -30,8 +30,10 @@ nav li:hover{
 .navbar {
     width: 100%;
     position: fixed;
-  
+
     z-index: 999;
+
+    top: 0;
   }
 .card {
     height: 100%;
@@ -88,4 +90,12 @@ nav li:hover{
 
 .submitButton:focus {
   outline: none;
+}
+
+.result-card {
+  display: flex;
+}
+
+.search-page-container {
+  margin-top: 60px;
 }

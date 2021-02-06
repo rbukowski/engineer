@@ -52,10 +52,11 @@ function createSelectOption(optionId, optionLabel) {
 }
 
 function submitFilter() {
-  let myForm = document.getElementById('filters-inner');
-  console.log(myForm)
-
+  const myForm = document.querySelector("form");
   const formData = new FormData(myForm);
-  console.log(formData)
+
+  const formValue = Object.fromEntries(formData);
+
+  console.log(formValue);
 
 }
