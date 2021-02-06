@@ -41,7 +41,7 @@
       <button class="submitButton" onClick="submitFilter()">Wyszukaj oferty</button>
     </div>
     <div class="col-lg-8">
-        <a class="result-card col-lg-12" href="/inz/index.html">
+        <a id="offer-card-template" class="result-card col-lg-12 hidden" href="/inz/index.html">
           <div class="card single-offer-card">
             <img
               src="https://gamingsociety.pl/wp-content/uploads/2020/03/call-of-duty-warzone-1.jpg"
@@ -50,6 +50,9 @@
             >
             <div class="single-offer-card-body">
               <h4 class="card-text">Warzone Pokój</h4>
+              <p class="price">Cena za dzień:</p>
+              <p class="details">Detale:</p>
+
             </div>
           </div>
         </a>
