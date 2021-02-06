@@ -69,7 +69,6 @@
   </div>
 </div>
 
-
 <script src="/js/generateSerachFilters.js"></script>
 <script defer>
     const filters = '<?php echo $filtersInJson;?>';

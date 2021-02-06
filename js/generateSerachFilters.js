@@ -60,12 +60,19 @@ async function submitFilter() {
     loaderElement.classList.add("hidden");
   },3000)
 
-
   const myForm = document.querySelector("form");
   const formData = new FormData(myForm);
 
-  const formValue = Object.fromEntries(formData);
+  const formValueObject = Object.fromEntries(formData);
 
-  console.log(formValue);
+  const selectedFilters = Object.values(formValueObject);
 
+  const queryString = selectedFilters.map(singleFilter => `filters[]=${singleFilter}`).join('&');
+  const currentQueryStringParamsParts = window.location.search.replace('?', '').split("&");
+  const typeParts = currentQueryStringParamsParts.filter(singlePart => singlePart.includes("type="));
+  const newQueryString = [...typeParts, queryString].join("&");
+  const newUrl = `${window.location.origin}${window.location.pathname}?${newQueryString}`;
+
+  // url change
+  window.history.pushState({}, '', newUrl);
 }
