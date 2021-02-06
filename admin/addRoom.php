@@ -1,10 +1,7 @@
 <?php
-    session_start();
-    if(!isset($_SESSION['logged']) || $_SESSION['logged'] !== true){
-        die('Brak dostępu!');
-    }
-
     require_once __DIR__ . '/src/autoload.php';
+
+    AuthorizationChecker::check();
 
     $dictionaryService = new DictionaryService();
     $roomTypes = $dictionaryService->getRoomTypes();

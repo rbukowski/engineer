@@ -2,6 +2,8 @@
   require_once __DIR__ . '/../template/parts/head.php';
   require_once __DIR__ . '/src/autoload.php';
 
+  AuthorizationChecker::check();
+
   $filterService = new FilterService();
   $searchService = new SearchService();
 
@@ -68,7 +70,6 @@
 </div>
 
 <?php
-    require_once('src/autoload.php');
     asset_js('generateSerachFilters.js');
 ?>
 
