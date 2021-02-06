@@ -39,7 +39,12 @@ class FilterService
               ctg.id,
               ctg.name,
               COALESCE(
-                JSON_OBJECTAGG(ct.id, ct.type),
+                JSON_AGG(
+                  JSON_BUILD_OBJECT(
+                    'id', ct.id,
+                    'type', ct.type
+                  )
+                ),
                 '{}'
               ) AS types
             FROM
@@ -64,7 +69,12 @@ class FilterService
               rtg.id,
               rtg.name,
               COALESCE(
-                JSON_OBJECTAGG(rt.id, rt.type),
+                JSON_AGG(
+                  JSON_BUILD_OBJECT(
+                    'id', rt.id,
+                    'type', rt.type
+                  )
+                ),
                 '{}'
               ) AS types
             FROM
@@ -89,7 +99,12 @@ class FilterService
               atg.id,
               atg.name,
               COALESCE(
-                JSON_OBJECTAGG(at.id, at.type),
+                JSON_AGG(
+                  JSON_BUILD_OBJECT(
+                    'id', at.id,
+                    'type', at.type
+                  )
+                ),
                 '{}'
               ) AS types
             FROM
@@ -111,7 +126,7 @@ class FilterService
     {
         return array_map(
             function (array $row): array {
-                $row['types'] = json_decode($row['types'] ?? '{}', true);
+                $row['types'] = TypesDecoder::decodeFromJson($row['types']);
 
                 return $row;
             },
