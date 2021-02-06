@@ -14,7 +14,25 @@ class FilterService
         $this->pdo = $pdo;
     }
 
-    public function getConferenceRoomsFilters(): array
+    public function getFiltersByType(string $type): array
+    {
+        switch ($type) {
+            case 'apartments':
+                return $this->getApartmentsFilters();
+
+            case 'rooms':
+                return $this->getRoomsFilters();
+
+            case 'conference-rooms':
+                return $this->getConferenceRoomsFilters();
+        }
+
+        throw new RuntimeException(
+            'Nieobsługiwany parametr wybierania filtrów!'
+        );
+    }
+
+    private function getConferenceRoomsFilters(): array
     {
         $query = $this->pdo->prepare(<<<SQL
             SELECT
@@ -41,12 +59,12 @@ class FilterService
         );
     }
 
-    public function getRoomsFilters(): array
+    private function getRoomsFilters(): array
     {
         return [];
     }
 
-    public function getApartmentsFilters(): array
+    private function getApartmentsFilters(): array
     {
         return [];
     }

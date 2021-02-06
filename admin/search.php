@@ -1,15 +1,15 @@
 <?php
   require_once __DIR__ . '/../template/parts/head.html';
+  require_once __DIR__ . '/src/autoload.php';
 
-  // $searchService = new SearchService(
-  //   PDOBuilder::getInstance()
-  // );
 
   $filterService = new FilterService(
     PDOBuilder::getInstance()
   );
 
-  
+  $filters = $filterService->getFiltersByType($_GET['type'] ?? '');
+
+  var_dump($filters);exit;
 ?>
 
 <div class="container">
