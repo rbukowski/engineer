@@ -51,7 +51,16 @@ function createSelectOption(optionId, optionLabel) {
   return optionElement
 }
 
-function submitFilter() {
+async function submitFilter() {
+  const loaderElement = document.getElementById("loader");
+
+  loaderElement.classList.remove("hidden");
+
+  setTimeout(() => {
+    loaderElement.classList.add("hidden");
+  },3000)
+
+
   const myForm = document.querySelector("form");
   const formData = new FormData(myForm);
 

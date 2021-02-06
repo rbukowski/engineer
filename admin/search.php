@@ -43,19 +43,28 @@
     <div class="col-lg-4">
       <label class="filtersSectionLabel">Filtrowanie</label>
       <form id="filters-inner"></form>
-      <button class="submitButton" onClick="submitFilter()">sub</button>
+      <button class="submitButton" onClick="submitFilter()">Wyszukaj oferty</button>
     </div>
     <div class="col-lg-8">
-
-        <a class="card-link result-card col-lg-6" href="/inz/index.html">
-          <div class="card">
-            <img src="https://gamingsociety.pl/wp-content/uploads/2020/03/call-of-duty-warzone-1.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
+        <a class="result-card col-lg-12" href="/inz/index.html">
+          <div class="card single-offer-card">
+            <img 
+              src="https://gamingsociety.pl/wp-content/uploads/2020/03/call-of-duty-warzone-1.jpg" 
+              class="card-img-top" 
+              alt="..."
+            >
+            <div class="single-offer-card-body">
               <h4 class="card-text">Warzone Pokój</h4>
             </div>
           </div>
         </a>
 
+        <div id="loader" class="d-flex justify-content-center hidden">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden"></span>
+          </div>
+        </div>
+        <div id="results"></div>
     </div>
   </div>
 </div>
