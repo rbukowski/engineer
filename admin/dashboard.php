@@ -249,7 +249,7 @@
                                 <option value="3">czteroosobowy</option>
                             </select>
                         </div>
-                        <input type="text" name="submitType" class="hidden-input"  id="room" placeholder="Nazwa" required value="room">
+                        <input type="text" name="submitType" class="hidden"  id="room" placeholder="Nazwa" required value="room">
                     </div>
                     <button class="btn btn-success">Dodaj</button>
                 </form>
@@ -285,7 +285,7 @@
                     <div class="forms">
                         <p>Nazwa: <input type="text" name="name" id="apartment" placeholder="Nazwa" required></p>
                         <p>Zdjęcie: <input type="file" name="photo" id="photo_apartment" required></p>
-                        <input type="text" name="submitType" class="hidden-input"  id="room" placeholder="Nazwa" required value="apartments">
+                        <input type="text" name="submitType" class="hidden"  id="room" placeholder="Nazwa" required value="apartments">
                         <div class="mt-3">
                             Apartamenty: <select name="type" id="pokoj">
                                 <option value="" disabled>Apartament</option>
@@ -329,7 +329,7 @@
                     <div class="forms">
                         <p>Nazwa: <input type="text" name="name" id="apartment" placeholder="Nazwa" required></p>
                         <p>Zdjęcie: <input type="file" name="photo" id="photo_apartment" required></p>
-                        <input type="text" name="submitType" class="hidden-input" id="room" placeholder="Nazwa" required value="conference">
+                        <input type="text" name="submitType" class="hidden" id="room" placeholder="Nazwa" required value="conference">
                         <div class="mt-3">
                             Sale konferencyjne: <select name="type" id="pokoj">
                                 <option value="" disabled>Sale konferencyjne</option>

@@ -59,7 +59,7 @@
                                 ?>
                               </select>
                           </div>
-                          <input type="text" name="submitType" class="hidden-input" id="apartment" placeholder="Nazwa" required value="apartments">
+                          <input type="text" name="submitType" class="hidden" id="apartment" placeholder="Nazwa" required value="apartments">
                       </div>
                       <div class="d-flex justify-content-end form-control-buttons-wrapper">
                         <button class="btn btn-success">Dodaj</button>

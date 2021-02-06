@@ -30,8 +30,10 @@ nav li:hover{
 .navbar {
     width: 100%;
     position: fixed;
-  
+
     z-index: 999;
+
+    top: 0;
   }
 .card {
     height: 100%;
@@ -46,8 +48,8 @@ nav li:hover{
 .card-link {
     color: black;
 }
-.hidden-input {
-    display: none;
+.hidden {
+    display: none !important;
 }
 
 .align-right {
@@ -88,4 +90,29 @@ nav li:hover{
 
 .submitButton:focus {
   outline: none;
+}
+
+.result-card {
+  display: flex;
+}
+
+.search-page-container {
+  margin-top: 60px;
+}
+
+.single-offer-card {
+  display: flex;
+  flex-direction: revert;
+  width: 100%;
+
+  margin-bottom: 20px;
+}
+
+.card-img-top {
+  width: 250px;
+}
+
+.single-offer-card-body {
+  width: 100%;
+  padding: 10px;
 }
