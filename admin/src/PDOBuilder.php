@@ -5,10 +5,6 @@ declare(strict_types=1);
 class PDOBuilder
 {
     private static $instance;
-    private static $host = 'mysql';
-    private static $user = 'root';
-    private static $password = 'pwd123456';
-    private static $dbname = 'inz1';
 
     /**
      * Taka konstrukcja jest po to, aby nie otwierać kilku połączeń do bazy danych tylko zawsze zwracać to samo.
@@ -24,14 +20,23 @@ class PDOBuilder
 
     private static function createInstance(): void
     {
+        if (!file_exists(__DIR__ . '/config/database.php')) {
+            throw new RuntimeException(
+                'Plik konfiguracji dostępów do bazy danych nie istnieje!'
+                    . ' Utwórz plik konfiguracji na bazie pliku "config/database.dist.php".'
+            );
+        }
+
+        $config = require_once __DIR__ . '/config/database.php';
+
         self::$instance = new PDO(
             sprintf(
                 'mysql:host=%s;dbname=%s',
-                self::$host,
-                self::$dbname,
+                $config['host'],
+                $config['dbname'],
             ),
-            self::$user,
-            self::$password
+            $config['user'],
+            $config['password']
         );
     }
 }
