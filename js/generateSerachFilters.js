@@ -73,6 +73,12 @@ async function submitFilter() {
   const newQueryString = [...typeParts, queryString].join("&");
   const newUrl = `${window.location.origin}${window.location.pathname}?${newQueryString}`;
 
+  const apiUrl = `/admin/ajax-search.php?${newQueryString}`
+
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => console.log(data));
+
   // url change
   window.history.pushState({}, '', newUrl);
 }
