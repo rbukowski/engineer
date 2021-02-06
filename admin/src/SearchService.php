@@ -29,6 +29,9 @@ class SearchService
             // Czy wszystkie filtry na pewno zostały spełnione.
             // W takim przypadku, jeżeli przeszukiwany element będzie spełniał dodatkowe filtry - nie zostanie
             // On wykluczony z wyniku.
+            // [1, 2] ; [1, 2, 3] => [1, 2] || count(2) === count(2) - OK!
+            // [1] ; [1, 2, 3, 4, 5] => [1] || count(1) === count(1) - OK!
+            // [1, 2, 3] ; [1, 2] => [1, 2] || count(3) !== count(2) - Nie OK!
             $areFiltersSatisfied = count(
                 array_intersect($filterTypeIds, array_keys($row['types']))
             ) === count($filterTypeIds);
