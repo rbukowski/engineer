@@ -38,10 +38,13 @@ class FilterService
             SELECT
               ctg.id,
               ctg.name,
-              JSON_OBJECTAGG(ct.id, ct.type) AS types
+              COALESCE(
+                JSON_OBJECT_AGG(ct.id, ct.type),
+                '{}'
+              ) AS types
             FROM
               conference_types AS ct
-            INNER JOIN
+            LEFT JOIN
               conference_type_groups AS ctg ON ctg.id = ct.group_id
             GROUP BY
               ctg.id
@@ -49,23 +52,70 @@ class FilterService
 
         $query->execute([]);
 
-        return array_map(
-            function (array $filterGroup): array {
-                $filterGroup['types'] = json_decode($filterGroup['types'], true);
-
-                return $filterGroup;
-            },
+        return $this->decodeTypes(
             $query->fetchAll(PDO::FETCH_ASSOC)
         );
     }
 
     private function getRoomsFilters(): array
     {
-        return [];
+        $query = $this->pdo->prepare(<<<SQL
+            SELECT
+              rtg.id,
+              rtg.name,
+              COALESCE(
+                JSON_OBJECTAGG(rt.id, rt.type),
+                '{}'
+              ) AS types
+            FROM
+              rooms_types AS rt
+            LEFT JOIN
+              rooms_type_groups AS rtg ON rtg.id = rt.group_id
+            GROUP BY
+              rtg.id
+        SQL);
+
+        $query->execute([]);
+
+        return $this->decodeTypes(
+            $query->fetchAll(PDO::FETCH_ASSOC)
+        );
     }
 
     private function getApartmentsFilters(): array
     {
-        return [];
+        $query = $this->pdo->prepare(<<<SQL
+            SELECT
+              atg.id,
+              atg.name,
+              COALESCE(
+                JSON_OBJECTAGG(at.id, at.type),
+                '{}'
+              ) AS types
+            FROM
+              apartments_types AS at
+            LEFT JOIN
+              apartments_type_groups AS atg ON atg.id = at.group_id
+            GROUP BY
+              atg.id
+        SQL);
+
+        $query->execute([]);
+
+        return $this->decodeTypes(
+            $query->fetchAll(PDO::FETCH_ASSOC)
+        );
+    }
+
+    private function decodeTypes(array $rows): array
+    {
+        return array_map(
+            function (array $row): array {
+                $row['types'] = json_decode($row['types'] ?? '{}', true);
+
+                return $row;
+            },
+            $rows
+        );
     }
 }
