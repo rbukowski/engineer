@@ -98,7 +98,7 @@
                             echo "<td scope='row'>" . $singleRoom['id'] . "</td>";
                             echo "<td scope='row'>" . $singleRoom['name'] . "</td>";
                             echo "<td scope='row'>"
-                                . implode_newline(json_decode($singleRoom['types'], true))
+                                . decode_multiline($singleRoom['types'])
                                 . "</td>";
                             echo "<td scope='row'>" . $singleRoom['price'] . "</td>";
                             echo "<td scope='row'>" . $singleRoom['name'] . "</td>";
@@ -138,7 +138,7 @@
                             echo "<td scope='row'>" . $singleApartment['id'] . "</td>";
                             echo "<td scope='row'>" . $singleApartment['name'] . "</td>";
                             echo "<td scope='row'>"
-                                . implode_newline(json_decode($singleApartment['types'], true))
+                                . decode_multiline($singleApartment['types'])
                                 . "</td>";
                             echo "<td scope='row'>" . $singleApartment['price'] . "</td>";
                             echo "<td scope='row'>" . $singleApartment['name'] . "</td>";
@@ -179,7 +179,7 @@
                             echo "<td scope='row'>" . $singleConferenceRoom['id'] . "</td>";
                             echo "<td scope='row'>" . $singleConferenceRoom['name'] . "</td>";
                             echo "<td scope='row'>"
-                                . implode_newline(json_decode($singleConferenceRoom['types'], true))
+                                . decode_multiline($singleConferenceRoom['types'])
                                 . "</td>";
                             echo "<td scope='row'>" . $singleConferenceRoom['price'] . "</td>";
                             echo "<td scope='row'>" . $singleConferenceRoom['name'] . "</td>";
