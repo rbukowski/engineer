@@ -7,11 +7,6 @@
 
   $filters = $filterService->getFiltersByType($_GET['type'] ?? '');
   $filtersInJson = json_encode($filters);
-
-  $elements = $searchService->searchByType(
-      $_GET['type'] ?? '',
-      $_GET['filterTypeIds'] ?? []
-  );
 ?>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -48,9 +43,9 @@
     <div class="col-lg-8">
         <a class="result-card col-lg-12" href="/inz/index.html">
           <div class="card single-offer-card">
-            <img 
-              src="https://gamingsociety.pl/wp-content/uploads/2020/03/call-of-duty-warzone-1.jpg" 
-              class="card-img-top" 
+            <img
+              src="https://gamingsociety.pl/wp-content/uploads/2020/03/call-of-duty-warzone-1.jpg"
+              class="card-img-top"
               alt="..."
             >
             <div class="single-offer-card-body">
