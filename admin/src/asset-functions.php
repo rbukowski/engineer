@@ -19,10 +19,10 @@ function asset_img(string $assetPath): void {
 }
 
 function get_path(string $assetPath): string {
-    $appConfig = require_once __DIR__ . '/config/app.php';
+    $appConfig = require __DIR__ . '/config/app.php';
 
     if (!empty($appConfig['projectPath'])) {
-        return "{$appConfig['projectPath']}/$assetPath";
+        return "{$appConfig['projectPath']}$assetPath";
     }
 
     return $assetPath;
