@@ -39,7 +39,7 @@ class FilterService
               ctg.id,
               ctg.name,
               COALESCE(
-                JSON_OBJECT_AGG(ct.id, ct.type),
+                JSON_OBJECTAGG(ct.id, ct.type),
                 '{}'
               ) AS types
             FROM
