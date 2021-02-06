@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Hotel Bukowscy</title>
+</head>
+
+<body>
+<!--navbar-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- <a class="navbar-brand" href="/inz/index.html">Hotel</a> -->
+    <a class="navbar-brand" href="/inz/index.html"><img src="logos/logo.png" alt="offer"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" onclick="smoothScroll('#offer')">Oferta</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" onclick="smoothScroll('#fun')">Rozrywka</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" onclick="smoothScroll('footer')">Kontakt</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!--navbar-->
+<!--header-->
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12 text-center">
+                <button class="col-lg-4 p-4">POZNAJ NAS</button>
+            </div>
+        </div>
+    </div>
+</header>
+<!--header-->
+<!--oferta-->
+<section id="offer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center p-4 mb-3 mt-4">Nasza oferta</h1>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center p-4">
+            <div class="col-lg-4">
+                <a class="card-link" href="admin/search.php?type=apartments">
+                    <div class="card">
+                        <img src="asset/offer/1.jpg" alt="offer">
+                        <div class="card-body">
+                            <h4 class="text-center p-3">Apartamenty</h4>
+                            <p>Luksusowe aparamenty z pełnym wyposażeniem i mini barem.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4">
+                <a class="card-link" href="/inz/index.html">
+                    <div class="card">
+                        <img src="asset/offer/2.jpg" alt="offer">
+                        <div class="card-body">
+                            <h4 class="text-center p-3">Pokoje</h4>
+                            <p>Pokoje do wynajęcia.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4">
+                <a class="card-link" href="/inz/index.html">
+                    <div class="card">
+                        <img src="asset/offer/3.jpg" alt="offer">
+                        <div class="card-body">
+                            <h4 class="text-center p-3">Sale konferencyjne</h4>
+                            <p>W pełni wyposażone sale konferencyjne dla klientów biznesowych.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!--oferta-->
+<!--rozrywka-->
+<section id="fun">
+    <div class="container-fluid bg-dark">
+        <div class="row">
+            <div class="col-12 p-4">
+                <h1 class="text-center text-light p-4">Rozrywka</h1>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center p-4">
+            <div class="col-lg-3 m-3">
+                <div class="avatar mx-auto">
+                    <img src="asset/fun/pool.jpg" class="w-100 rounded-circle" alt="rozrywka">
+                </div>
+                <h5 class="font-weight-bold mt-3 mb-3 text-center text-light">Basen</h5>
+                <p class="text-light">
+                    Basen hotelowy pozwoli się Państwu zrelaksować.
+                </p>
+            </div>
+            <div class="col-lg-3 m-3">
+                <div class="avatar mx-auto">
+                    <img src="asset/fun/bowling.jpg" class="w-100 rounded-circle" alt="rozrywka">
+                </div>
+                <h5 class="font-weight-bold mt-3 mb-3 text-center text-light">Kręgle</h5>
+                <p class="text-light">
+                    W naszym hotelu znajdą Państwo 3 tory do gry w kręgle.
+                </p>
+            </div>
+            <div class="col-lg-3 m-3">
+                <div class="avatar mx-auto">
+                    <img src="asset/fun/bilard.jpg" class="w-100 rounded-circle" alt="rozrywka">
+                </div>
+                <h5 class="font-weight-bold mt-3 mb-3 text-center text-light">Bilard</h5>
+                <p class="text-light">
+                    Nasze 4 stoły bo bilarda zapewnią Państwu wspaniałą zabawę.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!--rozrywka-->
+<!--map-->
+<section id="map">
+    <div class="container">
+        <script
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5MdKOcpFPugM4GywR4YYBwZihNU-Dbd0&callback=initMap&libraries=&v=weekly"
+                defer></script>
+        <script>
+            // Initialize and add the map
+            function initMap() {
+                // The location of Rumia
+                const rumia = { lat: 54.57092, lng: 18.38802 };
+                // The map, centered at Rumia
+                const map = new google.maps.Map(document.getElementById("map"), {
+                    zoom: 10,
+                    center: rumia,
+                });
+                // The marker, positioned at Rumia
+                const marker = new google.maps.Marker({
+                    position: rumia,
+                    map: map,
+                });
+            }
+        </script>
+    </div>
+</section>
+<!--map-->
+<!-- footer -->
+<footer class="page-footer font-small pt-3">
+    <div class="container">
+        <div class="row p-4 d-flex justify-content-between">
+            <div class="col-lg-3">
+                <h5 class="font-weight-bold">Hotel Bukowscy</h5>
+                <p>
+                    Hotel cieszący się renomą na polskim rynku już od ponad 20 lat.
+                </p>
+            </div>
+            <div class="col-lg-4">
+                <p>
+                    <i class="fa fa-phone pr-4" style="font-size:24px"></i> +48123456789
+                </p>
+                <p>
+                    <i class="fa fa-envelope-o pr-4" style="font-size:24px"></i> hotel@hotel.pl
+                </p>
+                <p>
+                    <i class="fa fa-home pr-4" style="font-size:24px"></i> Ul. Polna 44, 81-111 Warszawa
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h6 class="text-center">Copyright: UX designers XYZ</h6>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer -->
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS  -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+<script src="js/myScript.js"></script>
+</body>
+
+</html>
