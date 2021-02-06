@@ -23,7 +23,7 @@ CREATE TABLE public.apartments_relations
   apartment_type_id INT REFERENCES public.apartments_types("id") NOT NULL
 );
 
-create table public.conference_rooms
+CREATE TABLE public.conference_rooms
 (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
@@ -89,7 +89,7 @@ CREATE TABLE public.reservations
   reservation_object_id VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE users
+CREATE TABLE public.users
 (
   id SERIAL PRIMARY KEY,
   name VARCHAR(50) NOT NULL,
