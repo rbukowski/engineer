@@ -30,6 +30,7 @@ function createSelect(singleFilter, elementWhereInsert) {
   // create select element
   const selectElement = document.createElement('select');
   selectElement.setAttribute('name', id);
+  selectElement.setAttribute('value', Object.keys(types)[0]);
 
   // create select options and append them to select
   Object.entries(types).map(entryType => {
@@ -49,4 +50,13 @@ function createSelectOption(optionId, optionLabel) {
   optionElement.innerHTML = optionLabel;
 
   return optionElement
+}
+
+function submitFilter() {
+  let myForm = document.getElementById('filters-inner');
+  console.log(myForm)
+
+  const formData = new FormData(myForm);
+  console.log(formData)
+
 }

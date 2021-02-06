@@ -16,12 +16,10 @@
       </div>
   </div>
   <div class="row d-flex justify-content-center p-4">
-      <div class="col-lg-4" id="filters-inner">
+      <div class="col-lg-4">
         <label class="filtersSectionLabel">Filtrowanie</label>
-        <form>
-
-        
-        </form>
+        <form id="filters-inner"></form>
+        <button onClick="submitFilter()">sub</button>
       </div>
       <div class="col-lg-8">
           <a class="card-link" href="/inz/index.html">
