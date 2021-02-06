@@ -31,12 +31,13 @@ class PDOBuilder
 
         self::$instance = new PDO(
             sprintf(
-                'mysql:host=%s;dbname=%s',
+                'pgsql:host=%s;port=%s;dbname=%s;user=%s;password=%s',
                 $config['host'],
+                $config['port'],
                 $config['dbname'],
+                $config['user'],
+                $config['password']
             ),
-            $config['user'],
-            $config['password']
         );
     }
 }

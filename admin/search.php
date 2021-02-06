@@ -16,7 +16,7 @@
   echo json_encode([
     'filters' => $filters,
     'elements' => $elements,
-  ]);
+  ]);exit;
 ?>
 
 <div class="container">

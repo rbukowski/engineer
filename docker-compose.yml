@@ -1,23 +1,22 @@
 version: '3.7'
 
 volumes:
-    mysql-data:
+    db-data:
         driver: local
 
 services:
-    mysql:
-        container_name: ${COMPOSE_PROJECT_NAME}_mysql
-        image: mariadb
-        volumes:
-            - mysql-data:/var/lib/mysql/data
-        restart: always
-        ports:
-            - "0.0.0.0:43306:3306"
+    postgres:
+        container_name: ${COMPOSE_PROJECT_NAME}_pgsql
+        image: postgres
         environment:
-            MYSQL_ROOT_PASSWORD: pwd123456
-            MYSQL_USER: root
-            MYSQL_PASSWORD: password
-            MYSQL_DATABASE: inz1
+            POSTGRES_USER: root
+            POSTGRES_PASSWORD: pwd123456
+            POSTGRES_DB: database
+        volumes:
+            - db-data:/var/lib/postgresql/data
+        ports:
+            - "0.0.0.0:45432:5432"
+        restart: unless-stopped
 
     nginx:
         container_name: ${COMPOSE_PROJECT_NAME}_nginx
