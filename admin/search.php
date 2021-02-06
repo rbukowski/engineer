@@ -1,5 +1,5 @@
 <?php
-  require_once __DIR__ . '/../template/parts/head.html';
+  require_once __DIR__ . '/../template/parts/head.php';
   require_once __DIR__ . '/src/autoload.php';
 
   $filterService = new FilterService(PDOBuilder::getInstance());
@@ -64,7 +64,11 @@
   </div>
 </div>
 
-<script src="/js/generateSerachFilters.js"></script>
+<?php
+    require_once('src/asset-function.php');
+    asset_js('js/generateSerachFilters.js');
+?>
+
 <script defer>
     const filters = '<?php echo $filtersInJson;?>';
     renderFilters(filters);
