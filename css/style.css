@@ -61,3 +61,17 @@ nav li:hover{
 .form-control-buttons-wrapper button:first-of-type {
     margin-right: 10px;
 }
+
+.filtersSectionLabel {
+  display: block;
+
+  border-bottom: 1px solid #eee;
+
+  padding-bottom: 10px;
+
+  margin-bottom: 20px;
+
+  font-size: 16px;
+
+  font-weight: bold;
+}

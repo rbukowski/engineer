@@ -2,14 +2,11 @@
   require_once __DIR__ . '/../template/parts/head.html';
   require_once __DIR__ . '/src/autoload.php';
 
-
   $filterService = new FilterService(
     PDOBuilder::getInstance()
   );
 
-  $filters = $filterService->getFiltersByType($_GET['type'] ?? '');
-
-  var_dump($filters);exit;
+  $filtersInJson = json_encode($filterService->getFiltersByType($_GET['type'] ?? ''));
 ?>
 
 <div class="container">
@@ -19,16 +16,12 @@
       </div>
   </div>
   <div class="row d-flex justify-content-center p-4">
-      <div class="col-lg-4">
-          <a class="card-link" href="admin/search.php?type=apartments">
-              <div class="card">
-                  <img src="asset/offer/1.jpg" alt="offer">
-                  <div class="card-body">
-                      <h4 class="text-center p-3">Apartamenty</h4>
-                      <p>Luksusowe aparamenty z pełnym wyposażeniem i mini barem.</p>
-                  </div>
-              </div>
-          </a>
+      <div class="col-lg-4" id="filters-inner">
+        <label class="filtersSectionLabel">Filtrowanie</label>
+        <form>
+
+        
+        </form>
       </div>
       <div class="col-lg-8">
           <a class="card-link" href="/inz/index.html">
@@ -43,3 +36,10 @@
       </div>
   </div>
 </div>
+
+
+<script src="/js/generateSerachFilters.js"></script>
+<script defer>
+    const filters = '<?php echo $filtersInJson;?>';
+    renderFilters(filters);
+</script>
