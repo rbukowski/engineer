@@ -2,17 +2,19 @@ function renderFilters(filtersInJson) {
   // parse filters from json to normal js array
   // TODO: dodać try kacza :D
   const parsedFilters = JSON.parse(filtersInJson);
-
   const elementInner = document.getElementById("filters-inner");
 
   if (!elementInner) {
     return false
   }
 
-  parsedFilters.forEach(singleFilter => createSelect(singleFilter, elementInner))
+  const filtersParts = window.location.search.split("&");
+  const filterValues = filtersParts.map(part => Number(part.replace("filters[]=", ""))).filter(value => !isNaN(value));
+
+  parsedFilters.forEach(singleFilter => createSelect(singleFilter, elementInner, filterValues));
 }
 
-function createSelect(singleFilter, elementWhereInsert) {
+function createSelect(singleFilter, elementWhereInsert, selectedValues) {
   const { id, name, types } = singleFilter
 
   // creating label for input
@@ -31,9 +33,40 @@ function createSelect(singleFilter, elementWhereInsert) {
   const selectElement = document.createElement('select');
   selectElement.setAttribute('name', id);
 
+  // -- parse select available options to objects
+  let selectHasValue = false;
+
+  const typesParsedToObjects = Object.entries(types).map(singleEntry => {
+    const typeId = Number(singleEntry[0]);
+    const typeLabel = singleEntry[1];
+    const isSelected = selectedValues.includes(typeId);
+
+    if (isSelected && !selectHasValue) {
+      selectHasValue = true;
+    }
+
+    return {
+      typeId,
+      typeLabel,
+      isSelected
+    }
+  })
+
+  typesParsedToObjects.unshift({
+    typeId: "",
+    typeLabel: "---",
+    isSelected: !selectHasValue
+  })
+
+
   // create select options and append them to select
-  Object.entries(types).map(entryType => {
-    const selectOption = createSelectOption(entryType[0], entryType[1]);
+  typesParsedToObjects.map(singleParsedType => {
+    const selectOption = createSelectOption(
+      singleParsedType.typeId,
+      singleParsedType.typeLabel,
+      singleParsedType.isSelected
+    );
+
     selectElement.appendChild(selectOption)
   })
 
@@ -43,10 +76,14 @@ function createSelect(singleFilter, elementWhereInsert) {
   elementWhereInsert.appendChild(selectWrapper)
 }
 
-function createSelectOption(optionId, optionLabel) {
+function createSelectOption(optionId, optionLabel, isSelected) {
   const optionElement = document.createElement('option');
   optionElement.setAttribute("value", optionId);
   optionElement.innerHTML = optionLabel;
+
+  if (isSelected) {
+    optionElement.setAttribute("selected", true);
+  }
 
   return optionElement
 }
@@ -65,7 +102,7 @@ async function submitFilter() {
 
   const formValueObject = Object.fromEntries(formData);
 
-  const selectedFilters = Object.values(formValueObject);
+  const selectedFilters = Object.values(formValueObject).filter(Boolean);
 
   const queryString = selectedFilters.map(singleFilter => `filters[]=${singleFilter}`).join('&');
   const currentQueryStringParamsParts = window.location.search.replace('?', '').split("&");
