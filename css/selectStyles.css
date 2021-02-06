@@ -39,6 +39,7 @@ select::-ms-expand {
   line-height: 1.1;
   background-color: #fff;
   background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+  margin-bottom: 30px;
 }
 .select select, .select::after {
   grid-area: select;
@@ -96,6 +97,4 @@ select[multiple] option {
 
   margin-bottom: 10px;
 }
-.select + .selectLabel {
-  margin-top: 2rem;
-}
+

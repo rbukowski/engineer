@@ -16,7 +16,7 @@
   echo json_encode([
     'filters' => $filters,
     'elements' => $elements,
-  ]);exit;
+  ]);
 ?>
 
 <div class="container">
@@ -29,7 +29,7 @@
       <div class="col-lg-4">
         <label class="filtersSectionLabel">Filtrowanie</label>
         <form id="filters-inner"></form>
-        <button onClick="submitFilter()">sub</button>
+        <button class="submitButton" onClick="submitFilter()">sub</button>
       </div>
       <div class="col-lg-8">
           <a class="card-link" href="/inz/index.html">

@@ -30,7 +30,6 @@ function createSelect(singleFilter, elementWhereInsert) {
   // create select element
   const selectElement = document.createElement('select');
   selectElement.setAttribute('name', id);
-  selectElement.setAttribute('value', Object.keys(types)[0]);
 
   // create select options and append them to select
   Object.entries(types).map(entryType => {
