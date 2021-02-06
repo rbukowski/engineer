@@ -1,23 +1,18 @@
 <?php
     session_start();
-    if(!isset($_SESSION['logged']) || $_SESSION['logged'] !== true){
+    if (!isset($_SESSION['logged']) || $_SESSION['logged'] !== true){
         die('Brak dostępu!');
     }
 
-    require_once('functions.php');
+    require_once __DIR__ . '/src/autoload.php';
 
-    $rooms = getRoomsOnAdminDashbard();
+    $dashboardService = new DashboardService();
 
-    $apartments = getApartmentsOnAdminDashbard();
-
-    $conferenceRooms = getConferenceOnAdminDashbard();
-
-    echo json_encode($rooms);
-
-    echo json_encode($apartments);
-
-    echo json_encode($conferenceRooms);
+    $rooms = $dashboardService->getRoomsOnAdminDashboard();
+    $apartments = $dashboardService->getApartmentsOnAdminDashboard();
+    $conferenceRooms = $dashboardService->getConferenceOnAdminDashboard();
 ?>
+
 <!doctype html>
 <html lang="en">
 
@@ -98,13 +93,15 @@
                 </thead>
                 <tbody>
                     <?php
-                        foreach ($rooms as $i => $singleRoom) {
+                        foreach ($rooms as $singleRoom) {
                             echo "<tr>";
-                            echo "<td scope='row'>".$singleRoom['id']."</td>";
-                            echo "<td scope='row'>".$singleRoom['name']."</td>";
-                            echo "<td scope='row'>".$singleRoom['type']."</td>";
-                            echo "<td scope='row'>".$singleRoom['price']."</td>";
-                            echo "<td scope='row'>".$singleRoom['name']."</td>";
+                            echo "<td scope='row'>" . $singleRoom['id'] . "</td>";
+                            echo "<td scope='row'>" . $singleRoom['name'] . "</td>";
+                            echo "<td scope='row'>"
+                                . implode_newline(json_decode($singleRoom['types'], true))
+                                . "</td>";
+                            echo "<td scope='row'>" . $singleRoom['price'] . "</td>";
+                            echo "<td scope='row'>" . $singleRoom['name'] . "</td>";
                             echo "</tr>";
                         }
                     ?>
@@ -138,11 +135,13 @@
                     <?php
                         foreach ($apartments as $i => $singleApartment) {
                             echo "<tr>";
-                            echo "<td scope='row'>".$singleApartment['id']."</td>";
-                            echo "<td scope='row'>".$singleApartment['name']."</td>";
-                            echo "<td scope='row'>".$singleApartment['type']."</td>";
-                            echo "<td scope='row'>".$singleApartment['price']."</td>";
-                            echo "<td scope='row'>".$singleApartment['name']."</td>";
+                            echo "<td scope='row'>" . $singleApartment['id'] . "</td>";
+                            echo "<td scope='row'>" . $singleApartment['name'] . "</td>";
+                            echo "<td scope='row'>"
+                                . implode_newline(json_decode($singleApartment['types'], true))
+                                . "</td>";
+                            echo "<td scope='row'>" . $singleApartment['price'] . "</td>";
+                            echo "<td scope='row'>" . $singleApartment['name'] . "</td>";
 
                             echo "</tr>";
                         }
@@ -177,11 +176,13 @@
                     <?php
                         foreach ($conferenceRooms as $i => $singleConferenceRoom) {
                             echo "<tr>";
-                            echo "<td scope='row'>".$singleConferenceRoom['id']."</td>";
-                            echo "<td scope='row'>".$singleConferenceRoom['name']."</td>";
-                            echo "<td scope='row'>".$singleConferenceRoom['type']."</td>";
-                            echo "<td scope='row'>".$singleConferenceRoom['price']."</td>";
-                            echo "<td scope='row'>".$singleConferenceRoom['name']."</td>";
+                            echo "<td scope='row'>" . $singleConferenceRoom['id'] . "</td>";
+                            echo "<td scope='row'>" . $singleConferenceRoom['name'] . "</td>";
+                            echo "<td scope='row'>"
+                                . implode_newline(json_decode($singleConferenceRoom['types'], true))
+                                . "</td>";
+                            echo "<td scope='row'>" . $singleConferenceRoom['price'] . "</td>";
+                            echo "<td scope='row'>" . $singleConferenceRoom['name'] . "</td>";
 
                             echo "</tr>";
                         }

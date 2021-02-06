@@ -9,9 +9,9 @@ class FilterService
      */
     private $pdo;
 
-    public function __construct(PDO $pdo)
+    public function __construct()
     {
-        $this->pdo = $pdo;
+        $this->pdo = PDOBuilder::getInstance();
     }
 
     public function getFiltersByType(string $type): array

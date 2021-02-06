@@ -4,9 +4,10 @@
         die('Brak dostępu!');
     }
 
-    require_once('functions.php');
+    require_once __DIR__ . '/src/autoload.php';
 
-    $roomTypes = getRoomTypes();
+    $dictionaryService = new DictionaryService();
+    $roomTypes = $dictionaryService->getRoomTypes();
 ?>
 <!doctype html>
 <html lang="en">
@@ -39,8 +40,8 @@
       <div class="container">
           <div class="row">
               <div class="col-12 p-12">
-                  <form 
-                    action="addOffer.php" 
+                  <form
+                    action="addOffer.php"
                     enctype="multipart/form-data"
                     method="POST"
                     class="d-flex flex-column justify-content-between"
@@ -53,7 +54,7 @@
                               Rodzaj:
                               <select name="type" id="pokoj">
                               <?php
-                                  foreach ($roomTypes as $i => $singleRoomType) { 
+                                  foreach ($roomTypes as $i => $singleRoomType) {
                                     echo "<option value='".$singleRoomType['id']."'>".$singleRoomType['type']."</option>";
                                   }
                                 ?>

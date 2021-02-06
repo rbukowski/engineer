@@ -4,10 +4,12 @@
         die('Brak dostępu!');
     }
 
-    require_once('functions.php');
+    require_once __DIR__ . '/src/autoload.php';
 
-    $apartmentTypes = getApartmentTypes();
+    $dictionaryService = new DictionaryService();
+    $apartmentTypes = $dictionaryService->getApartmentTypes();
 ?>
+
 <!doctype html>
 <html lang="en">
 
@@ -39,8 +41,8 @@
       <div class="container">
           <div class="row">
               <div class="col-12 p-12">
-                  <form 
-                    action="addOffer.php" 
+                  <form
+                    action="addOffer.php"
                     enctype="multipart/form-data"
                     method="POST"
                     class="d-flex flex-column justify-content-between"
@@ -53,7 +55,7 @@
                               Rodzaj:
                               <select name="type" id="apartament">
                               <?php
-                                  foreach ($apartmentTypes as $i => $singleApartmentType) { 
+                                  foreach ($apartmentTypes as $i => $singleApartmentType) {
                                     echo "<option value='".$singleApartmentType['id']."'>".$singleApartmentType['type']."</option>";
                                   }
                                 ?>

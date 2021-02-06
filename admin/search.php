@@ -2,8 +2,8 @@
   require_once __DIR__ . '/../template/parts/head.php';
   require_once __DIR__ . '/src/autoload.php';
 
-  $filterService = new FilterService(PDOBuilder::getInstance());
-  $searchService = new SearchService(PDOBuilder::getInstance());
+  $filterService = new FilterService();
+  $searchService = new SearchService();
 
   $filters = $filterService->getFiltersByType($_GET['type'] ?? '');
   $filtersInJson = json_encode($filters);
