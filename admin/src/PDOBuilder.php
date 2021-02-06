@@ -8,7 +8,7 @@ class PDOBuilder
     private static $host = 'mysql';
     private static $user = 'root';
     private static $password = 'pwd123456';
-    private static $dbname = 'database';
+    private static $dbname = 'inz';
 
     /**
      * Taka konstrukcja jest po to, aby nie otwierać kilku połączeń do bazy danych tylko zawsze zwracać to samo.
