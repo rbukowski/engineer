@@ -2,11 +2,21 @@
   require_once __DIR__ . '/../template/parts/head.html';
   require_once __DIR__ . '/src/autoload.php';
 
-  $filterService = new FilterService(
-    PDOBuilder::getInstance()
+  $filterService = new FilterService(PDOBuilder::getInstance());
+  $searchService = new SearchService(PDOBuilder::getInstance());
+
+  $filters = $filterService->getFiltersByType($_GET['type'] ?? '');
+  $filtersInJson = json_encode($filters);
+
+  $elements = $searchService->searchByType(
+      $_GET['type'] ?? '',
+      $_GET['filterTypeIds'] ?? []
   );
 
-  $filtersInJson = json_encode($filterService->getFiltersByType($_GET['type'] ?? ''));
+  echo json_encode([
+    'filters' => $filters,
+    'elements' => $elements,
+  ]);exit;
 ?>
 
 <div class="container">
