@@ -52,6 +52,7 @@
                           <p class="form-dark-label">Cena za dobę: <input type="number" name="price" id="price" required></p>
                           <div class="mt-3 form-dark-label">
                               Rodzaj:
+                              <!-- TODO: Multiselect -->
                               <select name="type" id="pokoj">
                               <?php
                                   foreach ($roomTypes as $i => $singleRoomType) {
