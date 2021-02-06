@@ -4,20 +4,18 @@ declare(strict_types=1);
 
 switch ($_GET['type'] ?? '') {
     case 'apartments':
-        $result = [];
-    break;
+        break;
 
     case 'rooms':
-        $result = [];
-    break;
+        break;
 
     case 'conference-rooms':
-        $result = require_once __DIR__ . '/search/conference-rooms.php';
-    break;
+        $result = require_once __DIR__ . '/filters/conference-rooms.php';
+        break;
 
     default:
         throw new RuntimeException(
-            'Nieobsługiwany parametr wyszukiwania'
+            'Nieobsługiwany parametr wybierania filtrów!'
         );
 }
 

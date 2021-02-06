@@ -16,7 +16,7 @@
 
     echo json_encode($apartments);
 
-   echo json_encode($conferenceRooms);
+    echo json_encode($conferenceRooms);
 ?>
 <!doctype html>
 <html lang="en">
@@ -98,7 +98,7 @@
                 </thead>
                 <tbody>
                     <?php
-                        foreach ($rooms as $i => $singleRoom) { 
+                        foreach ($rooms as $i => $singleRoom) {
                             echo "<tr>";
                             echo "<td scope='row'>".$singleRoom['id']."</td>";
                             echo "<td scope='row'>".$singleRoom['name']."</td>";
@@ -136,7 +136,7 @@
                 </thead>
                 <tbody>
                     <?php
-                        foreach ($apartments as $i => $singleApartment) { 
+                        foreach ($apartments as $i => $singleApartment) {
                             echo "<tr>";
                             echo "<td scope='row'>".$singleApartment['id']."</td>";
                             echo "<td scope='row'>".$singleApartment['name']."</td>";
@@ -175,7 +175,7 @@
                 </thead>
                 <tbody>
                     <?php
-                        foreach ($conferenceRooms as $i => $singleConferenceRoom) { 
+                        foreach ($conferenceRooms as $i => $singleConferenceRoom) {
                             echo "<tr>";
                             echo "<td scope='row'>".$singleConferenceRoom['id']."</td>";
                             echo "<td scope='row'>".$singleConferenceRoom['name']."</td>";
@@ -214,8 +214,8 @@
                             <th scope="col">1</th>
                             <th scope="col">dwuosobowy</th>
                             <th scope="col">
-                                <button 
-                                    class="btn btn-danger" 
+                                <button
+                                    class="btn btn-danger"
                                     onclick="(function(){
                                         location.href = 'delete/delete_room.php?id=1';
                                     })()"

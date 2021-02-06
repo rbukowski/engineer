@@ -4,10 +4,10 @@
     class PDOBuilder
     {
         private static $instance;
-        private static $host = "127.0.0.1";
+        private static $host = 'mysql';
         private static $user = 'root';
-        private static $password = '';
-        private static $dbname = 'inz';
+        private static $password = 'pwd123456';
+        private static $dbname = 'database';
 
         /**
          * Taka konstrukcja jest po to, aby nie otwierać kilku połączeń do bazy danych tylko zawsze zwracać to samo.
@@ -17,6 +17,7 @@
             if (!self::$instance instanceof PDO) {
                 self::createInstance();
             }
+
             return self::$instance;
         }
 
