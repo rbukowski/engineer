@@ -7,7 +7,10 @@
   $searchService = new SearchService(PDOBuilder::getInstance());
 
   $filters = $filterService->getFiltersByType($_GET['type'] ?? '');
-  $elements = $searchService->searchByType($_GET['type'] ?? '');
+  $elements = $searchService->searchByType(
+      $_GET['type'] ?? '',
+      $_GET['filterTypeIds'] ?? []
+  );
 
   echo json_encode([
     'filters' => $filters,
