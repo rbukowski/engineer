@@ -68,8 +68,8 @@
 </div>
 
 <?php
-    require_once('src/asset-function.php');
-    asset_js('js/generateSerachFilters.js');
+    require_once('src/autoload.php');
+    asset_js('generateSerachFilters.js');
 ?>
 
 <script defer>

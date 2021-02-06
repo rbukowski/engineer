@@ -12,10 +12,10 @@
 
 
     <?php
-        require_once __DIR__ . '/../../admin/src/asset-function.php';
+        require_once __DIR__ . '/../../admin/src/autoload.php';
 
-        asset_css('css/style.css');
-        asset_css('css/selectStyles.css');
+        asset_css('style.css');
+        asset_css('selectStyles.css');
     ?>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
