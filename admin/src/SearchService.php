@@ -9,9 +9,9 @@ class SearchService
      */
     private $pdo;
 
-    public function __construct(PDO $pdo)
+    public function __construct()
     {
-        $this->pdo = $pdo;
+        $this->pdo = PDOBuilder::getInstance();
     }
 
     public function searchByType(string $type, array $filterTypeIds = []): array

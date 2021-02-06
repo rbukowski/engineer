@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/src/autoload.php';
 
-$searchService = new SearchService(PDOBuilder::getInstance());
-
+$searchService = new SearchService();
 ResponseEmitter::emit(
     $searchService->searchByType(
         $_GET['type'] ?? '',

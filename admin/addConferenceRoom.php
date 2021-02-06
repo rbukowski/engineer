@@ -4,10 +4,13 @@
         die('Brak dostępu!');
     }
 
-    require_once('functions.php');
 
-    $conferenceRoomTypes = getConferenceRoomTypes();
+    require_once __DIR__ . '/src/autoload.php';
+
+    $dictionaryService = new DictionaryService();
+    $conferenceRoomTypes = $dictionaryService->getConferenceRoomTypes();
 ?>
+
 <!doctype html>
 <html lang="en">
 
@@ -39,8 +42,8 @@
       <div class="container">
           <div class="row">
               <div class="col-12 p-12">
-                  <form 
-                    action="addOffer.php" 
+                  <form
+                    action="addOffer.php"
                     enctype="multipart/form-data"
                     method="POST"
                     class="d-flex flex-column justify-content-between"
@@ -50,10 +53,11 @@
                           <p class="form-dark-label">Zdjęcie: <input type="file" name="photo" id="photo_conference" required></p>
                           <p class="form-dark-label">Cena za dobę: <input type="number" name="price" id="price" required></p>
                           <div class="mt-3 form-dark-label">
-                              Rodzaj: 
+                              Rodzaj:
+                              <!-- TODO: Multiselect -->
                               <select name="type" id="conference">
                               <?php
-                                  foreach ($conferenceRoomTypes as $i => $singleConferenceType) { 
+                                  foreach ($conferenceRoomTypes as $i => $singleConferenceType) {
                                     echo "<option value='".$singleConferenceType['id']."'>".$singleConferenceType['type']."</option>";
                                   }
                                 ?>
