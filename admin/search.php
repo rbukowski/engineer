@@ -2,17 +2,23 @@
 
 declare(strict_types=1);
 
+require_once __DIR__ . '/src/autoload.php';
+
+$searchService = new SearchService(
+    PDOBuilder::getInstance()
+);
+
 switch ($_GET['type'] ?? '') {
     case 'apartments':
-        $result = [];
+        $result = $searchService->searchApartments();
     break;
 
     case 'rooms':
-        $result = [];
+        $result = $searchService->searchRooms();
     break;
 
     case 'conference-rooms':
-        $result = require_once __DIR__ . '/search/conference-rooms.php';
+        $result = $searchService->searchConferenceRooms();
     break;
 
     default:

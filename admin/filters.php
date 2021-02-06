@@ -2,15 +2,23 @@
 
 declare(strict_types=1);
 
+require_once __DIR__ . '/src/autoload.php';
+
+$filterService = new FilterService(
+    PDOBuilder::getInstance()
+);
+
 switch ($_GET['type'] ?? '') {
     case 'apartments':
+        $result = $filterService->getApartmentsFilters();
         break;
 
     case 'rooms':
+        $result = $filterService->getRoomsFilters();
         break;
 
     case 'conference-rooms':
-        $result = require_once __DIR__ . '/filters/conference-rooms.php';
+        $result = $filterService->getConferenceRoomsFilters();
         break;
 
     default:
