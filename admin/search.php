@@ -3,13 +3,16 @@
   require_once __DIR__ . '/src/autoload.php';
 
 
-  $filterService = new FilterService(
-    PDOBuilder::getInstance()
-  );
+  $filterService = new FilterService(PDOBuilder::getInstance());
+  $searchService = new SearchService(PDOBuilder::getInstance());
 
   $filters = $filterService->getFiltersByType($_GET['type'] ?? '');
+  $elements = $searchService->searchByType($_GET['type'] ?? '');
 
-  var_dump($filters);exit;
+  echo json_encode([
+    'filters' => $filters,
+    'elements' => $elements,
+  ]);exit;
 ?>
 
 <div class="container">
