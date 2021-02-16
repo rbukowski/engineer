@@ -1,8 +1,5 @@
 <?php
   require_once __DIR__ . '/src/autoload.php';
-
-  AuthorizationChecker::check();
-
   require_once __DIR__ . '/../template/parts/head.php';
 
   $filterService = new FilterService();
