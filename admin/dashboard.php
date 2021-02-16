@@ -60,7 +60,7 @@
                             echo "<td scope='row'>"
                                 . decode_multiline($singleRoom['types'])
                                 . "</td>";
-                            echo "<td scope='row'>" . $singleRoom['price'] . "</td>";
+                            echo "<td scope='row'>" . $singleRoom['price'] . "zł</td>";
                             echo "<td scope='row'>
                               <button class='action-button-edit'>
                                 <i class='fas fa-pen' ></i>
@@ -107,7 +107,7 @@
                             echo "<td scope='row'>"
                                 . decode_multiline($singleApartment['types'])
                                 . "</td>";
-                            echo "<td scope='row'>" . $singleApartment['price'] . "</td>";
+                            echo "<td scope='row'>" . $singleApartment['price'] . "zł</td>";
                             echo "<td scope='row'>
                               <button class='action-button-edit'>
                                 <i class='fas fa-pen' ></i>
@@ -155,7 +155,7 @@
                             echo "<td scope='row'>"
                                 . decode_multiline($singleConferenceRoom['types'])
                                 . "</td>";
-                            echo "<td scope='row'>" . $singleConferenceRoom['price'] . "</td>";
+                            echo "<td scope='row'>" . $singleConferenceRoom['price'] . "zł</td>";
                             echo "<td scope='row'>
                               <button class='action-button-edit'>
                                 <i class='fas fa-pen' ></i>
