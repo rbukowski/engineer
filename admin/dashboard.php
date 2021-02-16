@@ -25,10 +25,6 @@
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 
-    <!-- Font awesome -->
-    <link href="../asset/icons/css/all.css" rel="stylesheet">
-
-
     <title>Raport</title>
 </head>
 
