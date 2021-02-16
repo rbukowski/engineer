@@ -30,31 +30,35 @@ function createSelect(singleFilter, elementWhereInsert, selectedValues) {
   // set label content
   label.innerHTML = name;
 
-  // create select wrapper
-  const selectWrapper = document.createElement('div');
-  selectWrapper.setAttribute ("class", "select");
+  // add label to filters-inner form
+  elementWhereInsert.appendChild(label);
 
-  // create select element
+  // create select element and store it in variable
   const selectElement = document.createElement('select');
   selectElement.setAttribute('name', id);
 
-  // parse select available options to objects
+  // parse select available options to objects to have better acces to add them to dom tree
 
   // this value shows us if any options from this select is selected
   // it will help us mark "---" as selected if select doesnt has value
   let selectHasValue = false;
 
+  // itterate over elements and preapare neccessary data to create select available options
   const typesParsedToObjects = Object.entries(types).map(singleEntry => {
+    // get option id
     const typeId = Number(singleEntry[0]);
+    // get option label
     const typeLabel = singleEntry[1];
 
     // check if option id is selected
     const isSelected = selectedValues.includes(typeId);
 
+    // if value is selected then mark selectHasValue as true, it will tell us if we should mark "---" option as selected
     if (isSelected && !selectHasValue) {
       selectHasValue = true;
     }
 
+    // return preapared data
     return {
       typeId,
       typeLabel,
@@ -62,14 +66,14 @@ function createSelect(singleFilter, elementWhereInsert, selectedValues) {
     }
   })
 
+  // add "---" element as first to the options list
   typesParsedToObjects.unshift({
     typeId: "",
     typeLabel: "---",
     isSelected: !selectHasValue
   })
 
-
-  // create select options and append them to select
+  // itterate over list of options and create select option and append them to select
   typesParsedToObjects.map(singleParsedType => {
     const selectOption = createSelectOption(
       singleParsedType.typeId,
@@ -77,13 +81,18 @@ function createSelect(singleFilter, elementWhereInsert, selectedValues) {
       singleParsedType.isSelected
     );
 
-    selectElement.appendChild(selectOption)
+    selectElement.appendChild(selectOption);
   })
 
-  selectWrapper.appendChild(selectElement)
+  // create select wrapper
+  const selectWrapper = document.createElement('div');
+  selectWrapper.setAttribute ("class", "select");
 
-  elementWhereInsert.appendChild(label);
-  elementWhereInsert.appendChild(selectWrapper)
+  // add select as child to wrapper
+  selectWrapper.appendChild(selectElement);
+
+  // add select wrapper with select as child to form
+  elementWhereInsert.appendChild(selectWrapper);
 }
 
 function createSelectOption(optionId, optionLabel, isSelected) {
@@ -99,26 +108,42 @@ function createSelectOption(optionId, optionLabel, isSelected) {
 }
 
 async function submitFilter() {
+  // get loader element it will hel us manipulate him
   const loaderElement = document.getElementById("loader");
-
+  // display loader
   loaderElement.classList.remove("hidden");
 
+  // get form from dom tree
   const myForm = document.querySelector("form");
-  const formData = new FormData(myForm);
+  // parse form to formData object * formdata is js data object wchich represents current seleted values
+  const formData = new FormData(myForm); // object with selected values stored in format key: value
 
+  // get only values from formdata object and store them in array
   const formValueObject = Object.fromEntries(formData);
-
   const selectedFilters = Object.values(formValueObject).filter(Boolean);
 
-  const queryString = selectedFilters.map(singleFilter => `filters[]=${singleFilter}`).join('&');
+  // create filter string from selected filters
+  // itterate over each selected id and add filters[]= as prefix to create string like that: filters[]=id
+  // after that join table to string usign "&" char
+  const filterString = selectedFilters.map(singleFilter => `filters[]=${singleFilter}`).join('&');
+
+  // get query string from the current url from browser and split it to the parts by &
   const currentQueryStringParamsParts = window.location.search.replace('?', '').split("&");
+
+  // from query string parts get part wchich tell us wchich type is selected eg: room, apartment etc. tdi
   const typeParts = currentQueryStringParamsParts.filter(singlePart => singlePart.includes("type="));
-  const newQueryString = ['?',...typeParts, queryString].filter(Boolean).join("&");
+
+  // create new querystring based on previous selected type and current selected filters
+  // typeParts -> current selected type from browser url
+  // filterString -> string wchich is created from current selected filters
+  const newQueryString = ['?', ...typeParts, filterString].filter(Boolean).join("&");
+
+  // create new url string. Get current origin and path from current browsr url and add new created query string
   const newUrl = `${window.location.origin}${window.location.pathname}${newQueryString}`;
 
-  // url change
+  // uchange browser url without reloading
   window.history.pushState({}, '', newUrl);
-  // get data
+  // get data from api
   getAndAppendOffers(newQueryString)
 }
 
