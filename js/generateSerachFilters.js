@@ -4,6 +4,7 @@ function renderFilters(filtersInJson) {
   const parsedFilters = JSON.parse(filtersInJson);
   const elementInner = document.getElementById("filters-inner");
 
+  // if element doesnt exist end script
   if (!elementInner) {
     return false
   }
@@ -11,13 +12,14 @@ function renderFilters(filtersInJson) {
   const filtersParts = window.location.search.split("&");
   const filterValues = filtersParts.map(part => Number(part.replace("filters[]=", ""))).filter(value => !isNaN(value));
 
-  // get initial data
+  // get initial data from backend
   getAndAppendOffers(window.location.search);
 
   parsedFilters.forEach(singleFilter => createSelect(singleFilter, elementInner, filterValues));
 }
 
 function createSelect(singleFilter, elementWhereInsert, selectedValues) {
+  // get id , name and filter options from filtr object
   const { id, name, types } = singleFilter
 
   // creating label for input
@@ -36,12 +38,17 @@ function createSelect(singleFilter, elementWhereInsert, selectedValues) {
   const selectElement = document.createElement('select');
   selectElement.setAttribute('name', id);
 
-  // -- parse select available options to objects
+  // parse select available options to objects
+
+  // this value shows us if any options from this select is selected
+  // it will help us mark "---" as selected if select doesnt has value
   let selectHasValue = false;
 
   const typesParsedToObjects = Object.entries(types).map(singleEntry => {
     const typeId = Number(singleEntry[0]);
     const typeLabel = singleEntry[1];
+
+    // check if option id is selected
     const isSelected = selectedValues.includes(typeId);
 
     if (isSelected && !selectHasValue) {
@@ -115,7 +122,7 @@ async function submitFilter() {
   getAndAppendOffers(newQueryString)
 }
 
-async function getAndAppendOffers(query) {
+async function getAndAppendOffers(queryString) {
   const loaderNode = document.getElementById("loader");
   const resultNode = document.getElementById("results");
 
@@ -123,10 +130,12 @@ async function getAndAppendOffers(query) {
   loaderNode.classList.remove("hidden");
   resultNode.innerHTML = '';
 
-  const apiUrl = `/admin/ajax-search.php${query}`;
+  const apiUrl = `/admin/ajax-search.php${queryString}`;
 
   try {
-    const result = await fetch(apiUrl)
+    // await - wait for server response
+    const result = await fetch(apiUrl);
+    // wait for js to parse respons to json
     const offerList = await result.json();
 
     addOffers(offerList, resultNode)
@@ -150,14 +159,17 @@ function addOffers(offerArray, appendToNode) {
     const clonedTemplate = template.cloneNode(true)
     clonedTemplate.classList.remove("hidden")
 
+    // get title node and insert room name
     const titleNode = clonedTemplate.getElementsByClassName("card-text")[0];
     titleNode.innerHTML = singleOffer.name;
 
     const priceNode = clonedTemplate.getElementsByClassName("price")[0];
-    priceNode.innerHTML+= ` ${singleOffer.price}`;
+    priceNode.innerHTML+= ` ${singleOffer.price}zł`;
 
+    // preapare details string wchich contains room details
     const details = Object.values(singleOffer.types).join(", ").toLowerCase();
 
+    // get details node and add details string
     const detailsNode = clonedTemplate.getElementsByClassName("details")[0];
     detailsNode.innerHTML += ` ${details}`;
 
