@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
 
     <!-- Font awesome -->
     <link href="../asset/icons/css/all.css" rel="stylesheet">
@@ -36,41 +38,6 @@
             <div class="col-12">
                 <h3 class="text-center mt-3 mb-3 text-light">System do zarządzania hotelem</h3>
             </div>
-        </div>
-    </div>
-    <div class="container p-3 mt-4">
-        <h2 class="text-center p-4">Raport</h2>
-        <div class="row">
-            <table class="table table-striped mt-3">
-                <thead>
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col">Pokoje</th>
-                        <th scope="col">Apartamenty</th>
-                        <th scope="col">Sale konferencyjne</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Pokój dwuosobowy</td>
-                        <td>Dla dwojga</td>
-                        <td>Z telewizorem</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Pokój jednoosobowy</td>
-                        <td>Z mini barem</td>
-                        <td>Z tablicą interaktywną</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Pokój czteroosobowy</td>
-                        <td>Dla czterech osób</td>
-                        <td>Z projektorem</td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
     </div>
 
@@ -98,7 +65,14 @@
                                 . decode_multiline($singleRoom['types'])
                                 . "</td>";
                             echo "<td scope='row'>" . $singleRoom['price'] . "</td>";
-                            echo "<td scope='row'>" . $singleRoom['name'] . "</td>";
+                            echo "<td scope='row'>
+                              <button class='action-button-edit'>
+                                <i class='fas fa-pen' ></i>
+                              </button>
+                              <button class='action-button-delete'>
+                                <i class='fas fa-trash' ></i>
+                              </button>
+                              </td>";
                             echo "</tr>";
                         }
                     ?>
@@ -138,7 +112,14 @@
                                 . decode_multiline($singleApartment['types'])
                                 . "</td>";
                             echo "<td scope='row'>" . $singleApartment['price'] . "</td>";
-                            echo "<td scope='row'>" . $singleApartment['name'] . "</td>";
+                            echo "<td scope='row'>
+                              <button class='action-button-edit'>
+                                <i class='fas fa-pen' ></i>
+                              </button>
+                              <button class='action-button-delete'>
+                                <i class='fas fa-trash' ></i>
+                              </button>
+                              </td>";
 
                             echo "</tr>";
                         }
@@ -179,8 +160,14 @@
                                 . decode_multiline($singleConferenceRoom['types'])
                                 . "</td>";
                             echo "<td scope='row'>" . $singleConferenceRoom['price'] . "</td>";
-                            echo "<td scope='row'>" . $singleConferenceRoom['name'] . "</td>";
-
+                            echo "<td scope='row'>
+                              <button class='action-button-edit'>
+                                <i class='fas fa-pen' ></i>
+                              </button>
+                              <button class='action-button-delete'>
+                                <i class='fas fa-trash' ></i>
+                              </button>
+                              </td>";
                             echo "</tr>";
                         }
                     ?>

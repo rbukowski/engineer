@@ -130,3 +130,31 @@ nav li:hover{
   font-weight: bold;
   margin-bottom: 10px;
 }
+
+.action-button-edit {
+  border-width: 0px;
+  border-radius: 6px;
+  background-color: #0f9cde;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+}
+
+.action-button-delete {
+  border-width: 0px;
+  border-radius: 6px;
+  background-color: #c52626;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+}
+
+.action-button-edit i, .action-button-delete i {
+  color: #fff;
+}
