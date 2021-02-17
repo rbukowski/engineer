@@ -34,7 +34,7 @@
                           <p class="form-dark-label">Zdjęcie: <input type="file" name="photo" id="photo_room" required></p>
                           <p class="form-dark-label">Cena za dobę: <input type="number" name="price" id="price" required></p>
                           <div class="mt-3 form-dark-label">
-                              Rodzaj:
+                              Atrybuty:
                                 <select class="styled-select" name="type" id="pokoj" multiple="multiple">
                                   <?php
                                       foreach ($roomTypes as $i => $singleRoomType) {
