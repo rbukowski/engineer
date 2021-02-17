@@ -60,7 +60,7 @@
                             echo "<td scope='row'>"
                                 . decode_multiline($singleRoom['types'])
                                 . "</td>";
-                            echo "<td scope='row'>" . $singleRoom['price'] . " zł</td>";
+                            echo "<td scope='row'>" . $singleRoom['price'] . " zł/doba</td>";
                             echo "<td scope='row'>
                               <button class='action-button-edit'>
                                 <i class='fas fa-pen' ></i>
@@ -107,7 +107,7 @@
                             echo "<td scope='row'>"
                                 . decode_multiline($singleApartment['types'])
                                 . "</td>";
-                            echo "<td scope='row'>" . $singleApartment['price'] . " zł</td>";
+                            echo "<td scope='row'>" . $singleApartment['price'] . " zł/doba</td>";
                             echo "<td scope='row'>
                               <button class='action-button-edit'>
                                 <i class='fas fa-pen' ></i>
@@ -155,7 +155,7 @@
                             echo "<td scope='row'>"
                                 . decode_multiline($singleConferenceRoom['types'])
                                 . "</td>";
-                            echo "<td scope='row'>" . $singleConferenceRoom['price'] . " zł</td>";
+                            echo "<td scope='row'>" . $singleConferenceRoom['price'] . " zł/h</td>";
                             echo "<td scope='row'>
                               <button class='action-button-edit'>
                                 <i class='fas fa-pen' ></i>
@@ -179,7 +179,7 @@
         </div>
     </div>
 
-    <div class="container-fluid bg-dark">
+    <!--<div class="container-fluid bg-dark">
         <div class="row">
             <div class="col-6 p-5">
                 <table class="table text-light">
@@ -324,7 +324,7 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div>-->
 
     <!-- Optional JavaScript; choose one of the two! -->
 
