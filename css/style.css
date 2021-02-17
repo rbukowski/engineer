@@ -78,6 +78,12 @@ nav li:hover{
   font-weight: bold;
 }
 
+.search-filter-label {
+  font-weight: bold;
+
+  margin-top: 10px;
+}
+
 .submitButton {
   width: 100%;
   background-color: #00adff;
@@ -86,6 +92,7 @@ nav li:hover{
   color: #eee;
   font-weight: bold;
   padding: 4px 0;
+  margin-top: 10px;
 }
 
 .submitButton:focus {

@@ -1,3 +1,7 @@
 .styled-select {
   min-width: 200px;
 }
+
+.filter-select {
+  width: 100%;
+}

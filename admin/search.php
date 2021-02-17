@@ -67,7 +67,7 @@
 </div>
 
 <?php
-    asset_js('generateSerachFilters.js');
+    asset_js('generateSearchFilters.js');
 ?>
 
 <script defer>

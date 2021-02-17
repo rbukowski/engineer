@@ -26,7 +26,7 @@ function createSelect(singleFilter, elementWhereInsert, selectedValues) {
   const label = document.createElement('label');
   // adding class to label element
   label.setAttribute('for', 'standard-select');
-  label.setAttribute('class', 'selectLabel');
+  label.setAttribute('class', 'search-filter-label');
   // set label content
   label.innerHTML = name;
 
@@ -36,6 +36,8 @@ function createSelect(singleFilter, elementWhereInsert, selectedValues) {
   // create select element and store it in variable
   const selectElement = document.createElement('select');
   selectElement.setAttribute('name', id);
+  selectElement.setAttribute('class', 'filter-select');
+
 
   // parse select available options to objects to have better acces to add them to dom tree
 
@@ -84,15 +86,10 @@ function createSelect(singleFilter, elementWhereInsert, selectedValues) {
     selectElement.appendChild(selectOption);
   })
 
-  // create select wrapper
-  const selectWrapper = document.createElement('div');
-  selectWrapper.setAttribute ("class", "select");
-
-  // add select as child to wrapper
-  selectWrapper.appendChild(selectElement);
-
   // add select wrapper with select as child to form
-  elementWhereInsert.appendChild(selectWrapper);
+  elementWhereInsert.appendChild(selectElement);
+  // initialize select2 on each select element
+  $(selectElement).select2();
 }
 
 function createSelectOption(optionId, optionLabel, isSelected) {
