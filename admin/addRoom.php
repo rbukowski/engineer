@@ -35,20 +35,18 @@
                           <p class="form-dark-label">Cena za dobę: <input type="number" name="price" id="price" required></p>
                           <div class="mt-3 form-dark-label">
                               Rodzaj:
-                              <!-- TODO: Multiselect -->
-                              <div class="select">
-                                <select name="type" id="pokoj">
-                                <?php
-                                    foreach ($roomTypes as $i => $singleRoomType) {
-                                      echo "<option value='".$singleRoomType['id']."'>".$singleRoomType['type']."</option>";
-                                    }
+                                <select class="styled-select" name="type" id="pokoj" multiple="multiple">
+                                  <?php
+                                      foreach ($roomTypes as $i => $singleRoomType) {
+                                        echo "<option value='".$singleRoomType['id']."'>".$singleRoomType['type']."</option>";
+                                      }
                                   ?>
                                 </select>
                               </div>
                           </div>
                           <input type="text" name="submitType" class="hidden" id="room" placeholder="Nazwa" required value="rooms">
                       </div>
-                      <div class="d-flex justify-content-end form-control-buttons-wrapper">
+                      <div class="d-flex justify-content-end form-control-buttons-wrapper mt-3">
                         <button class="btn btn-success">Dodaj</button>
                         <a href="dashboard.php" class="btn btn-danger">
                           Anuluj
@@ -59,6 +57,17 @@
           </div>
       </div>
     </section>
+
+    <!-- selet2 implementation -->
+    <script>
+      $(document).ready(function() {
+        $('#pokoj').select2({
+          closeOnSelect: false,
+          allowClear: true
+        });
+      });
+    </script>
+
 </body>
 
 </html>
