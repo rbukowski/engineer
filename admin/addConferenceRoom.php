@@ -47,7 +47,7 @@
                       <div class="forms">
                           <p class="form-dark-label">Nazwa: <input type="text" name="name" id="conference" placeholder="Nazwa" required></p>
                           <p class="form-dark-label">Zdjęcie: <input type="file" name="photo" id="photo_conference" required></p>
-                          <p class="form-dark-label">Cena za dobę: <input type="number" name="price" id="price" required></p>
+                          <p class="form-dark-label">Cena za godzinę: <input type="number" name="price" id="price" required></p>
                           <div class="mt-3 form-dark-label">
                               Rodzaj:
                               <!-- TODO: Multiselect -->
