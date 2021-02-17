@@ -42,11 +42,10 @@
                                       }
                                   ?>
                                 </select>
-                              </div>
                           </div>
                           <input type="text" name="submitType" class="hidden" id="room" placeholder="Nazwa" required value="rooms">
                       </div>
-                      <div class="d-flex justify-content-end form-control-buttons-wrapper mt-3">
+                      <div class="d-flex justify-content-end form-control-buttons-wrapper">
                         <button class="btn btn-success">Dodaj</button>
                         <a href="dashboard.php" class="btn btn-danger">
                           Anuluj
@@ -63,7 +62,6 @@
       $(document).ready(function() {
         $('#pokoj').select2({
           closeOnSelect: false,
-          allowClear: true
         });
       });
     </script>
