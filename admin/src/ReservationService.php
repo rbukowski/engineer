@@ -143,7 +143,7 @@ class ReservationService
 
         if (!$query->fetchColumn()) {
             throw new OutOfBoundsException(
-                "Nie można założyć rezerwacji dla wybranego typu obiektu: \"$objectType\"!"
+                "Nie można założyć rezerwacji dla wybranego typu płatności: \"$paymentTypeId\"!"
             );
         }
     }
