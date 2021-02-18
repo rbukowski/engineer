@@ -1,3 +1,8 @@
+:root{
+  --button-blue: #0f9cde;
+  --text-color: #333;
+}
+
 header{
     height: 75vh;
     min-height: 300px;
@@ -57,7 +62,7 @@ nav li:hover{
 }
 
 .form-dark-label {
-    color: #000;
+    color: var(text-color);
 }
 
 .form-control-buttons-wrapper button:first-of-type {
@@ -123,7 +128,7 @@ nav li:hover{
   width: 100%;
   padding: 10px;
 
-  color: #000;
+  color: var(text-color);
 
   display: flex;
   flex-direction: column;
@@ -141,7 +146,7 @@ nav li:hover{
 .action-button-edit {
   border-width: 0px;
   border-radius: 6px;
-  background-color: #0f9cde;
+  background-color: var(--button-blue);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -164,4 +169,71 @@ nav li:hover{
 
 .action-button-edit i, .action-button-delete i {
   color: #fff;
+}
+
+.reservation-scroll-button {
+  border-width: 0;
+  border-radius: 10px;
+
+  padding: 5px 15px;
+
+  color: #fff;
+
+  background-color: var(--button-blue);
+}
+
+.offer-hotel-logo {
+  border: 1px solid #ebf3ff;
+  border-radius: 3px;
+
+  background: #fafcff;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+  padding: 14px 8px 8px 12px;
+  text-align: center;
+}
+
+.room-details {
+  background: #ebf3ff;
+  border: 1px solid #ebf3ff;
+  border-radius: 3px;
+
+  padding: 15px;
+  clear: both;
+}
+
+.room-details label{
+  font-weight: bold;
+  padding: 0 0 5px 0;
+  margin: 0;
+  color: #838383;
+  font-size: 13px;
+}
+
+.room-description {
+  font-size: 14px;
+  color: var(text-color);
+}
+
+.reservation-wrapper {
+  padding: 15px;
+  border-top: 1px solid #cd8900;
+  background: #ffe08a;
+  border-bottom: 1px solid #cd8900;
+}
+
+.date-input-label {
+  font-size: 12px;
+  font-weight: bold;
+
+  display: block;
+}
+
+.control-buttons {
+  display: flex;
+  align-items: flex-end;
+}
+
+.control-buttons button.check-available {
+
 }
