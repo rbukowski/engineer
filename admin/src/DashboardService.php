@@ -32,6 +32,8 @@ class DashboardService
               rooms_types AS rt ON rr.room_type_id = rt.id
             GROUP BY
               r.id
+            ORDER BY
+              r.id
         SQL);
 
         $query->execute();
@@ -54,6 +56,8 @@ class DashboardService
             LEFT JOIN
               apartments_types AS at ON at.id = ar.apartment_type_id
             GROUP BY
+              a.id
+              ORDER BY
               a.id
         SQL);
 
@@ -79,6 +83,8 @@ class DashboardService
             LEFT JOIN
               conference_types AS ct ON ct.id = crr.conference_type_id
             GROUP BY
+              cr.id
+            ORDER BY
               cr.id
         SQL);
 
