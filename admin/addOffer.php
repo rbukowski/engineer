@@ -1,9 +1,9 @@
 <?php
     if(!empty($_POST)){
         $name = trim($_POST['name']);
-        // TODO: Tutaj przesyła się z frontu jedna wybrana wartość zamiast wszystkich
-        // TOOD: Do sprawdzenia i do poprawienia!
-        $typeId = trim($_POST['type']);
+        // TODO: Tutaj przesyła się z frontu jedna wybrana wartość zamiast wszystkich! Do sprawdzenia i do poprawienia!
+        $typeIds = is_array($_POST['type'])
+            ? $_POST['type'] : [$_POST['type']];
         $submitType = $_POST['submitType'];
         $price = $_POST['price'];
 
@@ -114,11 +114,13 @@
                 'price' => $price,
             ]);
 
-            // TODO: Jak z frontu będzie wysyłanych kilka wartości to ten $relationQuery trzeba zmienić!
-            $relationQuery->execute([
-                'id' => $mainQuery->fetchColumn(),
-                'typeId' => $typeId,
-            ]);
+            // To można byłoby wykonać jako jeden SQL, ale będzie trudniejsze do zrozumienia implementacji.
+            foreach ($typeIds as $typeId) {
+                $relationQuery->execute([
+                    'id' => $mainQuery->fetchColumn(),
+                    'typeId' => $typeId,
+                ]);
+            }
 
             header("Location:dashboard.php");
         } catch (Exception $e) {
