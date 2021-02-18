@@ -1,11 +1,13 @@
 <?php
     if(!empty($_POST)){
         $name = trim($_POST['name']);
-        $type_id = trim($_POST['type']);
+        // TODO: Tutaj przesyła się z frontu jedna wybrana wartość zamiast wszystkich
+        // TOOD: Do sprawdzenia i do poprawienia!
+        $typeId = trim($_POST['type']);
         $submitType = $_POST['submitType'];
         $price = $_POST['price'];
 
-        if(!empty($_FILES)){
+        if (!empty($_FILES)){
             $targetDir = "../asset/offer/rooms/";
 
             if($submitType == "apartments") {
@@ -14,11 +16,11 @@
                 $targetDir = "../asset/offer/conference/";
             }
 
-            $targetFile = $targetDir.basename($_FILES['photo']['name']);
+            $targetFile = realpath($targetDir) . '/' . basename($_FILES['photo']['name']);
             $imgType = strtolower(pathinfo($targetFile,PATHINFO_EXTENSION));
 
             if(file_exists($targetFile)){
-                die('File alreadu exists!');
+                die('File already exists!');
             }
 
             if($_FILES['photo']['size'] > 500000){
@@ -36,21 +38,88 @@
             }
         }
 
+        /** @var PDO $pdo */
         $pdo = require_once __DIR__ . '/sql_connect.php';
 
-        $query = $pdo->prepare(<<<SQL
-            INSERT INTO :db_table (name, photo_url, price, type_id)
-            VALUES (:name, :photo_url, :price, :type_id)
-        SQL);
+        switch ($submitType) {
+            case 'rooms':
+                $mainQuery = $pdo->prepare(<<<SQL
+                    INSERT INTO rooms (
+                      name, photo_url, price
+                    )
+                    VALUES (
+                      :name, :photoUrl, :price
+                    )
+                    RETURNING id
+                SQL);
+                $relationQuery = $pdo->prepare(<<<SQL
+                    INSERT INTO rooms_relations (
+                      room_id, room_type_id
+                    )
+                    VALUES (
+                      :id, :typeId
+                    )
+                SQL);
+
+                break;
+            case 'apartments':
+                $mainQuery = $pdo->prepare(<<<SQL
+                    INSERT INTO apartments (
+                      name, photo_url, price
+                    )
+                    VALUES (
+                      :name, :photoUrl, :price
+                    )
+                    RETURNING id
+                SQL);
+                $relationQuery = $pdo->prepare(<<<SQL
+                    INSERT INTO apartments_relations (
+                      apartment_id, apartment_type_id
+                    )
+                    VALUES (
+                      :id, :typeId
+                    )
+                SQL);
+
+                break;
+            case 'conference-rooms':
+                $mainQuery = $pdo->prepare(<<<SQL
+                    INSERT INTO conference_rooms (
+                      name, photo_url, price
+                    )
+                    VALUES (
+                      :name, :photoUrl, :price
+                    )
+                    RETURNING id
+                SQL);
+                $relationQuery = $pdo->prepare(<<<SQL
+                    INSERT INTO conference_room_relations (
+                      conference_room_id, conference_type_id
+                    )
+                    VALUES (
+                      :id, :typeId
+                    )
+                SQL);
+                break;
+            default:
+                throw new InvalidArgumentException(
+                    "Nieobsługiwany typ do zapisu: \"$submitType\""
+                );
+        }
 
         try {
-            $query->execute([
-                'db_table' => $submitType,
+            $mainQuery->execute([
                 'name' => $name,
-                'photo_url' => $targetFile,
+                'photoUrl' => $targetFile ?: '',
                 'price' => $price,
-                'type_id' => $type_id
             ]);
+
+            // TODO: Jak z frontu będzie wysyłanych kilka wartości to ten $relationQuery trzeba zmienić!
+            $relationQuery->execute([
+                'id' => $mainQuery->fetchColumn(),
+                'typeId' => $typeId,
+            ]);
+
             header("Location:dashboard.php");
         } catch (Exception $e) {
             echo 'Caught exception: ',  $e->getMessage(), "\n";
