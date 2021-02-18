@@ -58,23 +58,49 @@
             <div class="col-12">
               <label>Wybierz termin rezerwacji:</label>
             </div>
-            <form class="row col-12">
+            <form class="row col-12" id="term-form">
               <div class="col-3">
                 <label class="date-input-label" >Od</label>
-                <input type="date" id="start" name="from">
+                <input type="date" id="start" name="from" require>
               </div>
               <div class="col-3">
                 <label class="date-input-label" >Do</label>
-                <input type="date" id="emd" name="to">
+                <input type="date" id="emd" name="to" require>
               </div>
               <div class="col-6 control-buttons">
-                <button class="check-available reservation-scroll-button">Sprawdź termin</button>
+                <button
+                  id="check-term-button"
+                  class="check-available reservation-scroll-button"
+                  onclick="checkTerm()"
+                  type="button"
+                >
+                  Sprawdź termin
+                </button>
+                <button
+                  id="book-button"
+                  class="check-available reservation-scroll-button hidden"
+                  onclick="checkTerm()"
+                  type="button"
+                >
+                  Zarezerwuj
+                </button>
               </div>
               <div class="col-12 mt-3 mb-3">
-                Cena za wybrany okres: <span class="price">---</span> zł
+                <div id="price-result" class="hidden">
+                  Cena za wybrany okres: <span class="price">---</span> zł
+                </div>
+                <div id="invalid" class="hidden"></div>
               </div>
             </form>
           </div>
       </div>
   </section>
+
+  <?php
+    asset_js('reservationScripts.js');
+  ?>
+
+  <!-- <script defer>
+    renderFilters(filters);
+  </script> -->
 </body>
