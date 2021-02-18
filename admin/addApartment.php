@@ -35,7 +35,7 @@
                           <p class="form-dark-label">Cena za dobę: <input type="number" name="price" id="price" required></p>
                           <div class="mt-3 form-dark-label">
                               Atrybuty:
-                              <select class="styled-select" name="type" id="apartament" multiple="multiple">
+                              <select class="styled-select" name="type" id="apartament" multiple="multiple" required>
                               <?php
                                   foreach ($apartmentTypes as $i => $singleApartmentType) {
                                     echo "<option value='".$singleApartmentType['id']."'>".$singleApartmentType['type']."</option>";
