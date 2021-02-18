@@ -86,10 +86,10 @@
                 </button>
               </div>
               <div class="col-12 mt-3 mb-3">
-                <div id="price-result" class="hidden">
-                  Cena za wybrany okres: <span class="price">---</span> zł
+                <div id="price-result" class="alert alert-primary hidden" role="alert">
+                  Cena za wybrany okres: <span class="price">---</span>
                 </div>
-                <div id="invalid" class="hidden"></div>
+                <div id="invalid" class="alert alert-danger hidden" role="alert"></div>
               </div>
             </form>
           </div>
