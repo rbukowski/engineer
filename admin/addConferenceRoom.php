@@ -36,7 +36,7 @@
                           <div class="mt-3 form-dark-label">
                               Atrybuty:
                               <!-- TODO: Multiselect -->
-                              <select class="styled-select" name="type" id="conference_select" multiple="multiple" required>
+                              <select class="styled-select" name="type[]" id="conference_select" multiple="multiple" required>
                                 <?php
                                     foreach ($conferenceRoomTypes as $i => $singleConferenceType) {
                                       echo "<option value='".$singleConferenceType['id']."'>".$singleConferenceType['type']."</option>";

@@ -7,7 +7,7 @@
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/inz/index.html"><img src="logos/logo.png" alt="offer"></a>
+    <a class="navbar-brand" href="/inz/index.html"><img src="/inz/logos/logo.png" alt="offer"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -34,7 +34,7 @@
       <div class="container">
           <div class="row">
               <div class="col-12 d-flex justify-content-between align-items-center">
-                  <h4 class="p-4 mb-3 mt-4">Typ apartamentu: Nazwa</h1>
+                  <h4 class="p-4 mb-3 mt-4">Typ apartamentu: Nazwa</h4>
               </div>
           </div>
       </div>
@@ -51,7 +51,7 @@
 
               <div class="col-4">
                 <div class="offer-hotel-logo">
-                  <img src="logos/logo.png" alt="offer">
+                  <img src="/inz/logos/logo.png" alt="offer">
                 </div>
                 <div class="room-details">
                   <label>Cena za dobę:</label>
@@ -75,7 +75,7 @@
   <section id="content">
       <div class="container">
           <div class="row col-12 mt-4 mb-2">
-            <h4>Dostępność</h3>
+            <h4>Dostępność</h4>
           </div>
           <div class="row col-12 reservation-wrapper">
             <div class="col-12">
