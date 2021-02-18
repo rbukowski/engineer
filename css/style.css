@@ -62,7 +62,7 @@ nav li:hover{
 }
 
 .form-dark-label {
-    color: var(text-color);
+    color: var(--text-color);
 }
 
 .form-control-buttons-wrapper button:first-of-type {
@@ -128,7 +128,7 @@ nav li:hover{
   width: 100%;
   padding: 10px;
 
-  color: var(text-color);
+  color: var(--text-color);
 
   display: flex;
   flex-direction: column;
@@ -212,7 +212,7 @@ nav li:hover{
 
 .room-description {
   font-size: 14px;
-  color: var(text-color);
+  color: var(--text-color);
 }
 
 .reservation-wrapper {
