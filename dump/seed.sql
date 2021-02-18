@@ -73,3 +73,12 @@ INSERT INTO public.rooms_relations (id, room_id, room_type_id) VALUES (1, 12, 1)
 
 -- Users
 INSERT INTO public.users (id, name, password) VALUES (1, 'admin', '1841ff7291b3b51d50e5557acf7e8db67983b0ceabc293b66a55de7330eae5a3f1c88d75092f44d7daac2f084bf0e3f22d57c1cf050887c6fa27661422106111');
+
+-- Reservation Types
+INSERT INTO public.reservation_types (id, type) VALUES (1, 'apartment');
+INSERT INTO public.reservation_types (id, type) VALUES (2, 'conference-room');
+INSERT INTO public.reservation_types (id, type) VALUES (3, 'room');
+
+-- Payment Types
+INSERT INTO public.payment_types (id, type) VALUES (1, 'cash');
+INSERT INTO public.payment_types (id, type) VALUES (2, 'card');

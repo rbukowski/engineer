@@ -12,7 +12,18 @@ define('CSS_ASSETS_PATH', '/css');
 require_once __DIR__ . '/asset-functions.php';
 require_once __DIR__ . '/view-functions.php';
 
+// Interfaces
+require_once __DIR__ . '/ObjectServiceInterface.php';
+
 // Classes
+require_once __DIR__ . '/ApartmentService.php';
+require_once __DIR__ . '/ConferenceRoomService.php';
+require_once __DIR__ . '/RoomService.php';
+require_once __DIR__ . '/ClientService.php';
+
+// Ten serwis korzysta z tych wyżej, więc kolejność ma znaczenie!
+require_once __DIR__ . '/ReservationService.php';
+
 require_once __DIR__ . '/AuthorizationChecker.php';
 require_once __DIR__ . '/DashboardService.php';
 require_once __DIR__ . '/DictionaryService.php';

@@ -73,7 +73,18 @@ CREATE TABLE public.rooms_relations
   room_type_id INT REFERENCES public.rooms_types("id") NOT NULL
 );
 
+CREATE TABLE public.clients
+(
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255)
+);
+
 CREATE TABLE public.reservation_types
+(
+  id SERIAL PRIMARY KEY,
+  type VARCHAR(255) NOT NULL
+);
+CREATE TABLE public.payment_types
 (
   id SERIAL PRIMARY KEY,
   type VARCHAR(255) NOT NULL
@@ -81,12 +92,12 @@ CREATE TABLE public.reservation_types
 CREATE TABLE public.reservations
 (
   id SERIAL PRIMARY KEY,
-  client_id INT NOT NULL,
+  client_id INT REFERENCES public.clients("id") NOT NULL,
   type INT REFERENCES public.reservation_types("id") NOT NULL,
   date_from DATE NOT NULL,
   date_to DATE NOT NULL,
-  payment_type INT NOT NULL,
-  reservation_object_id VARCHAR(255) NOT NULL
+  payment_type INT REFERENCES public.payment_types("id") NOT NULL,
+  reservation_object_id INT NOT NULL
 );
 
 CREATE TABLE public.users

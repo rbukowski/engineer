@@ -2,7 +2,7 @@
     require_once __DIR__ . '/../template/parts/head.php';
 
     // TODO: motyl dlaczego to się wywala jak sie odkomentuje po imporcie heada
-    // AuthorizationChecker::check();
+//     AuthorizationChecker::check();
 
     $dictionaryService = new DictionaryService();
     $roomTypes = $dictionaryService->getRoomTypes();
