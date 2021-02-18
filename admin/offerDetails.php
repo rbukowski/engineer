@@ -6,12 +6,35 @@
 ?>
 
 <body>
-  <section id="title">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/inz/index.html"><img src="logos/logo.png" alt="offer"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" onclick="smoothScroll('#offer')">Oferta</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" onclick="smoothScroll('#fun')">Rozrywka</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" onclick="smoothScroll('footer')">Kontakt</a>
+            </li>
+        </ul>
+    </div>
+  </nav>
+
+  <section id="title" style="margin-top: 60px;">
       <div class="container">
           <div class="row">
               <div class="col-12 d-flex justify-content-between align-items-center">
                   <h4 class="p-4 mb-3 mt-4">Typ apartamentu: Nazwa</h1>
-                  <button class="reservation-scroll-button">Zarezerwuj teraz</button>
               </div>
           </div>
       </div>
