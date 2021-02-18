@@ -8,10 +8,6 @@
     $apartmentTypes = $dictionaryService->getApartmentTypes();
 ?>
 
-<!doctype html>
-<html lang="en">
-
-
 <body>
     <section id="offer">
         <div class="container">
