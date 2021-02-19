@@ -9,7 +9,7 @@
 ?>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/inz/index.html"><img src="logos/logo.png" alt="offer"></a>
+  <a class="navbar-brand" href="/inz/index.html"><img src="/inz/logos/logo.png" alt="offer"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -17,16 +17,16 @@
   <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="/inz/index.html"">Home</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" onclick="smoothScroll('#offer')">Oferta</a>
+              <a class="nav-link" href="search.php?type=rooms">Pokoje</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" onclick="smoothScroll('#fun')">Rozrywka</a>
+              <a class="nav-link" href="search.php?type=apartments">Apartamenty</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" onclick="smoothScroll('footer')">Kontakt</a>
+              <a class="nav-link" href="search.php?type=conference-rooms">Sale konferencyjne</a>
           </li>
       </ul>
   </div>
@@ -40,7 +40,7 @@
       <button class="submitButton" onClick="submitFilter()">Wyszukaj oferty</button>
     </div>
     <div class="col-lg-8">
-        <a id="offer-card-template" class="result-card col-lg-12 hidden" href="/inz/index.html">
+        <a id="offer-card-template" class="result-card col-lg-12 hidden" href="/inz/admin/offerDetails.php">
           <div class="card single-offer-card">
             <img
               src="https://gamingsociety.pl/wp-content/uploads/2020/03/call-of-duty-warzone-1.jpg"
@@ -48,9 +48,9 @@
               alt="..."
             >
             <div class="single-offer-card-body">
-              <h4 class="card-text">Warzone Pokój</h4>
-              <p class="price">Cena za dzień:</p>
-              <p class="details">Detale:</p>
+              <h4 class="card-text">Oferta</h4>
+              <p class="price">Cena za noc: </p>
+              <p class="details">Detale: </p>
 
             </div>
           </div>
