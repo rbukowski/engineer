@@ -40,6 +40,19 @@
       </div>
   </section>
 
+  <section id="gallery">
+      <div class="container">
+          <div class="row gallery-container">
+              <img src="https://cf.bstatic.com/images/hotel/max1024x768/167/167534297.jpg" />
+              <img src="https://www.berjayahotel.com/sites/default/files/hotel-category-offers/kualalumpur/offers-room-berjaya-times-square-hotel-kuala-lumpur.jpg" />
+              <img src="https://www.gannett-cdn.com/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg?width=660&height=373&fit=crop&format=pjpg&auto=webp" />
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSN15Dtdnt35BDXTT_XCVA2BqbnH5ilsmggHw&usqp=CAU" />
+              <img src="https://res.cloudinary.com/wegowordpress/images/f_auto,q_auto/v1564055978/shutterstock_383952736_onyu7j/shutterstock_383952736_onyu7j.jpg" />
+
+            </div>
+      </div>
+  </section>
+
   <section id="content">
       <div class="container">
           <div class="row">

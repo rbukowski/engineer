@@ -237,3 +237,25 @@ nav li:hover{
 .control-buttons button.check-available {
 
 }
+
+.gallery-container {
+  margin: 0 0 25px;
+
+  flex-wrap: nowrap;
+  overflow: auto;
+
+  cursor: pointer;
+}
+
+.gallery-container::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-container > img {
+  height: 200px;
+  width: auto;
+
+  margin-right: 10px;
+
+  border-radius: 10px;
+}
